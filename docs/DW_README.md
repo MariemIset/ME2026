@@ -8,7 +8,12 @@ Every technical decision and feature engineered in this Data Warehouse was made 
 * **BO 1: Predictive Churn Modeling:** Identify which active loyalty members are at risk of canceling their memberships by analyzing behavioral shifts.
 * **BO 2: Points Program Optimization:** Analyze how efficiently customers earn and burn points across different marketing promotions to ensure the loyalty program remains profitable.
 * **BO 3: Satisfaction Driver Analysis:** Pinpoint exactly which operational metrics (e.g., flight delays, legroom) have the highest mathematical impact on overall passenger satisfaction.
-
+## 2.1. Technical Objectives (The "How")
+* **TO 1: Data Normalization & Integrity:** Transition from flat files to a **Star Schema** to ensure referential integrity.
+* **TO 2: Automated Feature Engineering:** Calculate behavioral KPIs (e.g., `loyalty_velocity`) during ETL to reduce model lead time.
+* **TO 3: Supervised Classification Implementation:** Implement **Gradient Boosted Trees** (XGBoost/LightGBM) to handle non-linear relationships in churn behavior (BO 1).
+* **TO 4: Deep Learning Propensity Scoring:** Deploy a **Multi-Layer Perceptron (MLP)** or Neural Network to process high-dimensional survey data and predict multi-class satisfaction levels (BO 3).
+* **TO 5: Anomaly & Segment Detection:** Utilize **K-Means Clustering** or **Isolation Forests** to identify "extreme" points earners or outliers in program usage (BO 2).
 ## 3. Data Architecture & Relationships
 To ensure data integrity, eliminate redundancy, and optimize for advanced querying, the warehouse isolates descriptive attributes into dedicated Dimensions, linked via Foreign Keys to measurable Facts.
 
