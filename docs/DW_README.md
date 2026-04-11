@@ -5,14 +5,19 @@ This project transforms raw, disconnected CSV files containing airline customer 
 
 ## 2. Business Objectives (The "Why")
 Every technical decision and feature engineered in this Data Warehouse was made to support the following Business Objectives (BOs):
-* **BO 1: Predictive Churn Modeling:** Identify which active loyalty members are at risk of canceling their memberships by analyzing behavioral shifts.
-* **BO 2: Points Program Optimization:** Analyze how efficiently customers earn and burn points across different marketing promotions to ensure the loyalty program remains profitable.
-* **BO 3: Satisfaction Driver Analysis:** Pinpoint exactly which operational metrics (e.g., flight delays, legroom) have the highest mathematical impact on overall passenger satisfaction.
+* **BO 1: Estimate client retention:** Identify which active loyalty members are at risk of canceling their memberships by analyzing behavioral shifts.
+* **BO 2: Optimize Point Program:** Analyze how efficiently customers earn and burn points across different marketing promotions to ensure the loyalty program remains profitable.
+* **BO 3: Enhance satisfaction drivers:** Pinpoint exactly which operational metrics (e.g., flight delays, legroom) have the highest mathematical impact on overall passenger satisfaction.
 ## 2.1. Technical Objectives (The "How")
-* **TO 1: Data Normalization & Integrity:** Transition from flat files to a **Star Schema** to ensure referential integrity.
-* **TO 2: Automated Feature Engineering:** Calculate behavioral KPIs (e.g., `loyalty_velocity`) during ETL to reduce model lead time.
+# 2.1.1 : Business Intelligence Objectives : 
+* **Business Intelligence Objective 1:** Develop a dynamic Churn Risk Dashboard that tracks rolling averages of flight frequency and distance for BO1.
+* **Business Intelligence Objective 2:** Create an "Earn vs. Burn" Financial Liability report that visualizes the volume of unredeemed points over time and calculates the average points-per-flight ROI for each specific marketing enrollment campaign for BO2.
+* **Business Intelligence Objective 3:** Implement an automated Key Influencers matrix that statistically weights individual survey components (like WiFi or cleanliness) against overall satisfaction scores, visually isolating the top three operational failures driving dissatisfaction per flight class for BO3.
+# 2.1.1 : Data Science Objectives :
+* **TO 1: Predictive Churn Modeling:** Implement **ML** to handle non-linear relationships in churn behavior (BO 1).
+* **TO 2: Comment digestion and NLP model:** Implement **NLP** through **DL** to digest and extract reviews to enhance BO3.
 * **TO 3: Supervised Classification Implementation:** Implement **Gradient Boosted Trees** (XGBoost/LightGBM) to handle non-linear relationships in churn behavior (BO 1).
-* **TO 4: Deep Learning Propensity Scoring:** Deploy a **Multi-Layer Perceptron (MLP)** or Neural Network to process high-dimensional survey data and predict multi-class satisfaction levels (BO 3).
+* **TO 4: Attached review pictures analysis:** Deploy a **Computer Vision Model** to detect and enhance comment credibility and weight.
 * **TO 5: Anomaly & Segment Detection:** Utilize **K-Means Clustering** or **Isolation Forests** to identify "extreme" points earners or outliers in program usage (BO 2).
 ## 3. Data Architecture & Relationships
 To ensure data integrity, eliminate redundancy, and optimize for advanced querying, the warehouse isolates descriptive attributes into dedicated Dimensions, linked via Foreign Keys to measurable Facts.
