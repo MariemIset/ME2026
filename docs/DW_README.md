@@ -10,9 +10,9 @@ Every technical decision and feature engineered in this Data Warehouse was made 
 * **BO 3: Enhance satisfaction drivers:** Pinpoint exactly which operational metrics (e.g., flight delays, legroom) have the highest mathematical impact on overall passenger satisfaction.
 ## 2.1. Technical Objectives (The "How")
 # 2.1.1 : Business Intelligence Objectives : 
-* **Business Intelligence Objective 1:** Develop a dynamic Churn Risk Dashboard that tracks rolling averages of flight frequency and distance for BO1.
-* **Business Intelligence Objective 2:** Create an "Earn vs. Burn" Financial Liability report that visualizes the volume of unredeemed points over time and calculates the average points-per-flight ROI for each specific marketing enrollment campaign for BO2.
-* **Business Intelligence Objective 3:** Implement an automated Key Influencers matrix that statistically weights individual survey components (like WiFi or cleanliness) against overall satisfaction scores, visually isolating the top three operational failures driving dissatisfaction per flight class for BO3.
+* **Business Intelligence Objective 1:** Analyze Churn Risk base on rolling averages of flight frequency and distance .
+* **Business Intelligence Objective 2:** Study Financial Liability and promotion ROI for each specific marketing enrollment campaign .
+* **Business Intelligence Objective 3:** Identify pain points influence on client's satisfaction.
 # 2.1.1 : Data Science Objectives :
 * **TO 1: Predictive Churn Modeling:** Implement **ML** to handle non-linear relationships in churn behavior (BO 1).
 * **TO 2: Comment digestion and NLP model:** Implement **NLP** through **DL** to digest and extract reviews to enhance BO3.
