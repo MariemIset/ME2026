@@ -2,12 +2,13 @@ import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
 import os
+from prepare_comments_only import prepare_comments 
 
 # 1. Database Connection Setup
 DB_USER = 'admin'
 DB_PASSWORD = 'password123'
 DB_HOST = 'localhost'
-DB_PORT = '5432'
+DB_PORT = '54321'
 DB_NAME = 'data_warehouse'
 
 # Create the connection tunnel to PostgreSQL
@@ -20,6 +21,8 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Navigate into the Loyalty Program folder
 LOYALTY_DIR = os.path.join(BASE_DIR, 'Airline+Loyalty+Program')
 CUSTOMER_HISTORY_FILE = os.path.join(LOYALTY_DIR, 'Customer Loyalty History.csv')
+SURVEY_DIR = os.path.join(BASE_DIR, 'Airline+Passenger+Satisfaction')
+SURVEY_FILE = os.path.join(SURVEY_DIR, 'airline_passenger_satisfaction.csv')
 
 
 def load_dim_customer():
@@ -146,6 +149,53 @@ def load_fact_flight_activity():
         print(f"❌ An error occurred: {e}")
 
 #---------------------------------------------------
+def resolve_comments_file():
+    candidates = [
+        os.path.join(BASE_DIR, 'comments_only.csv'),
+        os.path.join(SURVEY_DIR, 'comments_only.csv'),
+        os.path.join(BASE_DIR, 'Tweets.csv'),
+        os.path.join(BASE_DIR, 'tweets.csv'),
+        os.path.join(SURVEY_DIR, 'Tweets.csv'),
+        os.path.join(SURVEY_DIR, 'tweets.csv'),
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def load_comments_pool():
+    """
+    Loads real airline comments from comments_only.csv or Tweets.csv.
+    Expected columns: comment_text (preferred) or text (Kaggle tweets).
+    """
+    prepare_comments()
+    comments_file = resolve_comments_file()
+    if comments_file is None:
+        print("⚠️ Comments file not found. Place comments_only.csv or Tweets.csv in ME2026 or Airline+Passenger+Satisfaction.")
+        return pd.DataFrame(columns=['comment_text'])
+
+    print(f"Using comments source: {comments_file}")
+    df_comments = pd.read_csv(comments_file)
+
+    if 'comment_text' in df_comments.columns:
+        pass
+    elif 'text' in df_comments.columns:
+        df_comments = df_comments.rename(columns={'text': 'comment_text'})
+    else:
+        raise ValueError("Comments file must include 'comment_text' or 'text' column.")
+
+    df_comments['comment_text'] = df_comments['comment_text'].astype(str).str.strip()
+    df_comments = df_comments[df_comments['comment_text'].str.len() > 0]
+    df_comments = df_comments.drop_duplicates(subset=['comment_text']).reset_index(drop=True)
+
+    if df_comments.empty:
+        print("⚠️ comments_only.csv has no usable rows. Loading survey without comments.")
+        return pd.DataFrame(columns=['comment_text'])
+
+    return df_comments[['comment_text']]
+
+
 def load_fact_satisfaction_survey():
     print("Extracting Satisfaction Survey data...")
     # Note the different folder path here!
@@ -182,10 +232,30 @@ def load_fact_satisfaction_survey():
         'In-flight Wifi Service': 'wifi_score',
         'In-flight Entertainment': 'entertainment_score',
         'Baggage Handling': 'baggage_handling_score',
-        'Satisfaction': 'overall_satisfaction'
+        'Satisfaction': 'overall_satisfaction',
+        'Comments': 'comment_text'
     }
 
     df_survey = df_survey.rename(columns=rename_map)
+
+    # 2. Attach real public comments to most rows (keep some NULLs)
+    df_comments = load_comments_pool()
+    df_survey['comment_text'] = None
+
+    if not df_comments.empty:
+        rng = np.random.default_rng(42)
+        comment_mask = rng.random(len(df_survey)) < 0.75  # 75% rows receive comments
+        num_with_comments = int(comment_mask.sum())
+        sampled_comments = df_comments.sample(
+            n=num_with_comments,
+            replace=num_with_comments > len(df_comments),
+            random_state=42
+        ).reset_index(drop=True)
+
+        df_survey.loc[comment_mask, 'comment_text'] = sampled_comments['comment_text'].values
+        print(f"✅ Added comments to {num_with_comments}/{len(df_survey)} survey rows.")
+    else:
+        print("⚠️ Proceeding without comments because comments pool is unavailable.")
 
     # 2. Data Cleaning Note:
     # Flight datasets almost always have a few blank 'Arrival Delay' rows (e.g., if a flight was canceled or diverted).
@@ -203,7 +273,7 @@ def load_fact_satisfaction_survey():
 
 
 if __name__ == '__main__':
-     #load_dim_customer()
-    #load_dim_calendar()
-     load_fact_flight_activity()
-    #load_fact_satisfaction_survey()
+    load_dim_customer()
+    load_dim_calendar()
+    load_fact_flight_activity()
+    load_fact_satisfaction_survey()

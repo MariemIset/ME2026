@@ -86,5 +86,6 @@ CREATE TABLE fact_satisfaction_survey (
     wifi_score INT,
     entertainment_score INT,
     baggage_handling_score INT,
-    overall_satisfaction VARCHAR(50)
+    overall_satisfaction VARCHAR(50),
+	comment_text TEXT
 );
