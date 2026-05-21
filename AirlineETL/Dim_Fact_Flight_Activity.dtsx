@@ -1,0 +1,1529 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2026 10:42:22 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-QHTKJB1U"
+  DTS:CreatorName="LAPTOP-QHTKJB1U\feres"
+  DTS:DTSID="{44C87196-636D-411E-85CE-331639B4DA0C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Dim_Fact_Flight_Activity"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{062AC206-8012-4306-96B2-286BD4557AE1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_CustomerHistory]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FF_CustomerHistory"
+      DTS:DTSID="{7DCD498F-C9F4-4DFC-AAB0-ED974A3D7822}"
+      DTS:ObjectName="FF_CustomerHistory">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\Airline+Loyalty+Program\Customer Loyalty History.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loyalty Number"
+              DTS:DTSID="{99A0559C-C490-4C8B-BDE4-3FA507C158BA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Country"
+              DTS:DTSID="{E0624B49-410A-421C-B28B-2C979979708C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Province"
+              DTS:DTSID="{F66A10C1-02C7-4EB9-90B1-5B289E4A782E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="City"
+              DTS:DTSID="{664290D8-4AAC-4582-A573-0B55594A9568}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Postal Code"
+              DTS:DTSID="{7EAFC35C-9960-4FF7-854D-15AE0FD38AF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{A4320F86-6E07-41C2-A1DD-3607F884403C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Education"
+              DTS:DTSID="{0DAE1A3C-BD2B-4C3D-A163-C295745F0769}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Salary"
+              DTS:DTSID="{8BF91FE0-C88F-41D7-9F3B-5979F8CDE74A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marital Status"
+              DTS:DTSID="{A2E4BE61-576F-4499-B73A-A325F1229131}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loyalty Card"
+              DTS:DTSID="{63BAC4F0-6B30-48E6-82E4-62843B41A044}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CLV"
+              DTS:DTSID="{19D11FA0-14AF-4ABD-B90A-F482941A0C83}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Enrollment Type"
+              DTS:DTSID="{6DF20C74-1DB2-4D3C-8F5A-B81922CE93E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Enrollment Year"
+              DTS:DTSID="{A6FB91A8-1E36-425F-9EF0-8B9C48875D92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Enrollment Month"
+              DTS:DTSID="{F156B6E3-6B24-4E97-B3C3-2C4542460AE6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cancellation Year"
+              DTS:DTSID="{19848ED9-B9D3-47E8-9B8F-0452829F9759}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cancellation Month"
+              DTS:DTSID="{7F907214-4039-427E-B4BE-1F60A0B2A98A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_FlightActivity]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FF_FlightActivity"
+      DTS:DTSID="{353CD9B5-2CA9-4821-964D-4B8DF5D0ADCD}"
+      DTS:ObjectName="FF_FlightActivity">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\Airline+Loyalty+Program\Customer Flight Activity.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loyalty Number"
+              DTS:DTSID="{B13A24AB-61B4-44D5-BED0-FF230A5E7361}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{649630F4-A2F6-48EC-B53B-3D322F535071}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month"
+              DTS:DTSID="{AB871EA8-A68F-4A6C-9617-8F484B456E1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total Flights"
+              DTS:DTSID="{3C91E478-4F30-4993-864B-4C303687E5F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Distance"
+              DTS:DTSID="{7F29EE3E-F6A4-40AB-AA77-873A09957DA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Points Accumulated"
+              DTS:DTSID="{B0D12935-5DDB-4FEC-AB5A-7EA2EE3C86E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Points Redeemed"
+              DTS:DTSID="{523757AF-B2BE-4BE6-A811-CAF580EE8213}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dollar Cost Points Redeemed"
+              DTS:DTSID="{54742D58-907D-4F78-9FCB-364865FE8DB9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLE_DataWarehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B498D847-EA49-4231-A08B-39EED63C9094}"
+      DTS:ObjectName="OLE_DataWarehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=data_warehouse;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B498D847-EA49-4231-A08B-39EED63C9094}localhost.data_warehouse;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLE_DataWarehouse 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D8FFFB70-E52E-4244-9C5E-6E48B99C73EC}"
+      DTS:ObjectName="OLE_DataWarehouse 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=data_warehouse;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{D8FFFB70-E52E-4244-9C5E-6E48B99C73EC}localhost.data_warehouse;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load dim_fact_flight"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6E21AF93-5D91-4CD2-A3E7-E03BBC985055}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="1036"
+      DTS:ObjectName="DFT - Load dim_fact_flight"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load dim_fact_flight\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Points Redeemed]"
+                      cachedDataType="r8"
+                      cachedName="Points Redeemed"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Dollar Cost Points Redeemed]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Dollar Cost Points Redeemed"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Dollar Cost Points Redeemed]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Total Flights]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Total Flights"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Distance]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Distance"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Distance]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Year]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Year"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Month]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Month"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Month]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[cost_per_point]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[cost_per_point]"
+                      name="cost_per_point"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]} &gt; 0 ? (DT_R8)#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Dollar Cost Points Redeemed]} / (DT_R8)#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]} : (DT_R8)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Points Redeemed] &gt; 0 ? (DT_R8)[Dollar Cost Points Redeemed] / (DT_R8)[Points Redeemed] : (DT_R8)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[avg_distance_per_flight]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[avg_distance_per_flight]"
+                      name="avg_distance_per_flight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_I4)#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]} &gt; 0 ? (DT_R8)#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Distance]} / (DT_R8)#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]} : (DT_R8)0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_I4)[Total Flights] &gt; 0 ? (DT_R8)Distance / (DT_R8)[Total Flights] : (DT_R8)0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[points_per_flight]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[points_per_flight]"
+                      name="points_per_flight"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[LEN]([TRIM](#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]})) &gt; 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(TRIM([Total Flights])) &gt; 0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[is_redemption_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[is_redemption_month]"
+                      name="is_redemption_month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]} &gt; 0 ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">[Points Redeemed] &gt; 0 ? 1 : 0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[date_key_str]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[date_key_str]"
+                      name="date_key_str"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_WSTR,10)(#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Year]}) + "-" + [RIGHT]("0" + (DT_WSTR,2)(#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Month]}),2) + "-01"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,10)(Year) + "-" + RIGHT("0" + (DT_WSTR,2)(Month),2) + "-01"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load dim_fact_flight\Conversion de données"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="Conversion de données"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données].Columns[Loyalty Number]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Loyalty Number"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Loyalty Number]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données].Columns[date_key_str]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="date_key_str"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[date_key_str]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[loyalty_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Loyalty Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[date_key_dbdate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[date_key_dbdate]"
+                      name="date_key_dbdate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[date_key_str]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load dim_fact_flight\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[fact_flight_activity]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[cost_per_point]"
+                      cachedDataType="r8"
+                      cachedName="cost_per_point"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cost_per_point]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[cost_per_point]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[avg_distance_per_flight]"
+                      cachedDataType="r8"
+                      cachedName="avg_distance_per_flight"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[avg_distance_per_flight]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[avg_distance_per_flight]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[points_per_flight]"
+                      cachedDataType="bool"
+                      cachedName="points_per_flight"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_per_flight]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[points_per_flight]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[is_redemption_month]"
+                      cachedDataType="i4"
+                      cachedName="is_redemption_month"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[is_redemption_month]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[is_redemption_month]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Dollar Cost Points Redeemed]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Dollar Cost Points Redeemed"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[dollar_cost_points_redeemed]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Dollar Cost Points Redeemed]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Points Redeemed]"
+                      cachedDataType="r8"
+                      cachedName="Points Redeemed"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_redeemed]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Points Accumulated]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Points Accumulated"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_accumulated]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Accumulated]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Distance]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Distance"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[distance]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Distance]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Total Flights]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Total Flights"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[total_flights]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[date_key_str]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="date_key_str"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_key]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[date_key_str]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Year]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[activity_year]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Month]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[activity_month]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[loyalty_number]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[loyalty_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[flight_activity_id]"
+                      dataType="i4"
+                      name="flight_activity_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      name="loyalty_number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[date_key]"
+                      dataType="dbDate"
+                      name="date_key" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[activity_year]"
+                      dataType="i4"
+                      name="activity_year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[activity_month]"
+                      dataType="i4"
+                      name="activity_month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[total_flights]"
+                      dataType="i4"
+                      name="total_flights" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[distance]"
+                      dataType="r8"
+                      name="distance" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_accumulated]"
+                      dataType="r8"
+                      name="points_accumulated" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_redeemed]"
+                      dataType="r8"
+                      name="points_redeemed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[dollar_cost_points_redeemed]"
+                      dataType="r8"
+                      name="dollar_cost_points_redeemed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cost_per_point]"
+                      dataType="r8"
+                      name="cost_per_point" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[avg_distance_per_flight]"
+                      dataType="r8"
+                      name="avg_distance_per_flight" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[points_per_flight]"
+                      dataType="r8"
+                      name="points_per_flight" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[is_redemption_month]"
+                      dataType="i4"
+                      name="is_redemption_month" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LookUp_OnlyAddNewRows"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT loyalty_number, date_key FROM fact_flight_activity</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT loyalty_number, date_key FROM fact_flight_activity) [refTable]
+where [refTable].[loyalty_number] = ? and [refTable].[date_key] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="loyalty_number" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="date_key" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[loyalty_number]};#{Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[date_key_dbdate]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[loyalty_number]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">loyalty_number</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche].Columns[date_key_dbdate]"
+                      cachedDataType="dbDate"
+                      cachedName="date_key_dbdate"
+                      lineageId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données].Columns[date_key_dbdate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">date_key</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load dim_fact_flight\Source du fichier plat"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source du fichier plat"
+              localeId="1036"
+              name="Source du fichier plat"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_FlightActivity]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_FlightActivity]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat]"
+                  name="Sortie de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Loyalty Number]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Loyalty Number]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Loyalty Number]"
+                      name="Loyalty Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Year]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Year]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Month]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Month]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Total Flights]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Total Flights]"
+                      name="Total Flights"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Distance]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Distance]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Distance]"
+                      name="Distance"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Accumulated]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Points Accumulated]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Accumulated]"
+                      name="Points Accumulated"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Points Redeemed]"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Points Redeemed]"
+                      name="Points Redeemed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Dollar Cost Points Redeemed]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Dollar Cost Points Redeemed]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Dollar Cost Points Redeemed]"
+                      name="Dollar Cost Points Redeemed"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Loyalty Number]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Loyalty Number" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Year]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Month]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Total Flights]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Total Flights" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Distance]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Distance" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Points Accumulated]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Points Accumulated" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Points Redeemed]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Points Redeemed" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Dollar Cost Points Redeemed]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Dollar Cost Points Redeemed" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Colonne de sortie d'erreur de source de fichier plat"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      name="Colonne de sortie d'erreur de source de fichier plat" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load dim_fact_flight.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT - Load dim_fact_flight\Conversion de données.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT - Load dim_fact_flight.Paths[Sortie de conversion de données]"
+              endId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Inputs[Entrée de recherche]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT - Load dim_fact_flight\Conversion de données.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT - Load dim_fact_flight.Paths[Sortie de recherche sans correspondance]"
+              endId="Package\DFT - Load dim_fact_flight\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de recherche sans correspondance"
+              startId="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows.Outputs[Sortie de recherche sans correspondance]" />
+            <path
+              refId="Package\DFT - Load dim_fact_flight.Paths[Sortie de source de fichier plat]"
+              endId="Package\DFT - Load dim_fact_flight\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source de fichier plat"
+              startId="Package\DFT - Load dim_fact_flight\Source du fichier plat.Outputs[Sortie de source de fichier plat]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="200.8,41.6"
+          Id="Package\DFT - Load dim_fact_flight"
+          TopLeft="203.333325501946,130.199999511838" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load dim_fact_flight">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\DFT - Load dim_fact_flight\Conversion de données"
+          TopLeft="476.666640622749,439.399996944468" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\DFT - Load dim_fact_flight\Source du fichier plat"
+          TopLeft="485.499977566303,705.866660391225" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT - Load dim_fact_flight\Destination OLE DB"
+          TopLeft="487.666657942864,35.9999983270961" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows"
+          TopLeft="469.666645098064,204.866665937436" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\DFT - Load dim_fact_flight\Colonne dérivée"
+          TopLeft="492.499973090988,578.933329307503" />
+        <EdgeLayout
+          Id="Package\DFT - Load dim_fact_flight.Paths[Sortie de source de fichier plat]"
+          TopLeft="571.599975328646,705.866660391225">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-85.3333310837224"
+              Start="0,0"
+              End="0,-77.8333310837224">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-77.8333310837224" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load dim_fact_flight.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="573.066651520464,204.866665937436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-127.26666761034"
+              Start="0,0"
+              End="0,-119.76666761034">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-119.76666761034" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.50201171875,-65.6880213051702,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load dim_fact_flight.Paths[Sortie de conversion de données]"
+          TopLeft="571.766642860407,439.399996944468">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-192.933331007031"
+              Start="0,0"
+              End="0,-185.433331007031">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-185.433331007031" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load dim_fact_flight.Paths[Sortie de colonne dérivée]"
+          TopLeft="570.183306856869,578.933329307503">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-97.933332363035"
+              Start="0,0"
+              End="0,-90.433332363035">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-90.433332363035" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="x"
+          ParentId="Package\DFT - Load dim_fact_flight"
+          FontInfo="{assembly:Null}"
+          Size="34.4,40"
+          Id="2bd89b40-753b-4b8e-a26f-b5e63ab27cc5"
+          TopLeft="979.166613167361,710.666661724779" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load dim_fact_flight\LookUp_OnlyAddNewRows">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load dim_fact_flight\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
