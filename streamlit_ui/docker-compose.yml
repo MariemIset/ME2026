@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  streamlit_ui:
+    build: .
+    image: mission-entreprise/streamlit-ui:0.1.0
+    container_name: streamlit_ui
+    env_file: .env
+    environment:
+      # Inside a docker network these point at the FastAPI containers,
+      # not at the host. Override here without editing .env.
+      CHURN_API_URL: http://churn_api:8000
+      LOYALTY_API_URL: http://loyalty_api:8001
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./outputs:/app/outputs
+      # Mount the BO1 model registry read-only so local SHAP works.
+      - ../churn_ml/artifacts:/churn_artifacts:ro
+      - ../loyalty_ml/artifacts:/loyalty_artifacts:ro
+    networks:
+      - me_net
+
+networks:
+  me_net:
+    external: true
+    name: me_net

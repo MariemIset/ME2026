@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "loyalty_ml"
+version = "0.1.0"
+description = "BO2 — Loyalty program optimisation for airline rewards"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "integration: tests that require a live PostgreSQL DW",
+    "slow: tests that take >1s",
+]
