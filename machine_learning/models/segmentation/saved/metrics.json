@@ -1,0 +1,8 @@
+{
+  "silhouette_score": 0.315,
+  "davies_bouldin_index": 1.1691,
+  "anomaly_rate": 0.05,
+  "n_clusters": 3,
+  "n_anomalies": 837,
+  "n_total": 16737
+}
