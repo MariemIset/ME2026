@@ -1,0 +1,718 @@
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m scripts.validate_data
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+  warnings.warn(
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-20T22:38:58.986179Z"}
+{"rows": 12305, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:38:59.224590Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:38:59.224590Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:39:00.846478Z"}
+{"as_of_date": "2017-12-31", "window_start_date": "2016-12-31", "months": 12, "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:39:00.846478Z"}
+{"positives": 278, "negatives": 12027, "positive_rate": 0.022592442096708656, "as_of_date": "2017-12-31", "horizon_end": "2018-06-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:39:00.866284Z"}
+{"customers": 12305, "activity_rows": 149196, "as_of_date": "2017-12-31", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:39:00.866884Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 779.83it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2004.93it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2002.05it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2066.16it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1458.89it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1103.47it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1008.49it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2010.69it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1496.45it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 571.45it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 721.35it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 624.09it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 701.07it/s]
+        13 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 24/24 [00:00<00:00, 560.76it/s]
+{"rows": 12305, "event": "validation_ok_customers", "level": "info", "timestamp": "2026-05-20T22:39:01.371203Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 787.22it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2003.97it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1314.62it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1992.54it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 997.10it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1121.22it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 725.97it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 121.18it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 127.67it/s]
+        9 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 19/19 [00:00<00:00, 148.47it/s]
+{"rows": 149196, "event": "validation_ok_activity", "level": "info", "timestamp": "2026-05-20T22:39:01.789049Z"}
+Data validation OK.
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m scripts.run_training --trials 30
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+  warnings.warn(
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\opentelemetry\util\_importlib_metadata.py:32: DeprecationWarning: SelectableGroups dict interface is deprecated. Use select.
+  return EntryPoints(ep for group_eps in eps.values() for ep in group_eps)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:61: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("togetherai_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:75: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("cohere_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:83: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("ai21labs_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:92: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("mosaicml_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:122: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("openai_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:179: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("anthropic_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:187: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("palm_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:227: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("mistral_api_key", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:308: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("provider", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:329: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("config", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:369: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("name")
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:379: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("model", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:390: PydanticDeprecatedSince20: Pydantic V1 style `@root_validator` validators are deprecated. You should migrate to Pydantic V2 style `@model_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @root_validator(skip_on_failure=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:412: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("route_type", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\mlflow\gateway\config.py:418: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  @validator("limit", pre=True)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_config.py:291: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.8/migration/
+  warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\plots\colors\_colorconv.py:819: DeprecationWarning: Converting `np.inexact` or `np.floating` to a dtype is deprecated. The current result is `float64` which is not strictly correct.
+  if np.issubdtype(dtype_in, np.dtype(dtype).type):
+
+{"as_of_test": "2017-12-31", "as_of_train": "2017-06-30", "observation_months": 12, "prediction_months": 6, "event": "pipeline_start", "level": "info", "timestamp": "2026-05-20T22:39:42.772443Z"}
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-20T22:39:42.777912Z"}
+{"rows": 11338, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:39:42.862328Z"}
+{"as_of_date": "2017-06-30", "customers": 11338, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:39:42.862328Z"}
+{"rows": 95550, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:39:43.556275Z"}
+{"as_of_date": "2017-06-30", "window_start_date": "2016-06-30", "months": 12, "rows": 95550, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:39:43.556275Z"}
+{"positives": 262, "negatives": 11076, "positive_rate": 0.02310813194566943, "as_of_date": "2017-06-30", "horizon_end": "2017-12-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:39:43.573427Z"}
+{"customers": 11338, "activity_rows": 68748, "as_of_date": "2017-06-30", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:39:43.574426Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 994.74it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1993.96it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1372.93it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 3710.13it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1999.19it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2000.14it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 788.85it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2004.93it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 917.46it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 635.84it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 612.39it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 684.23it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 637.55it/s]
+        13 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 24/24 [00:00<00:00, 625.72it/s]
+{"rows": 11338, "event": "validation_ok_customers", "level": "info", "timestamp": "2026-05-20T22:39:43.833168Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 960.12it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2005.88it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1990.65it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1006.31it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2016.98it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1057.43it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1091.70it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 236.07it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 246.14it/s]
+        9 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 19/19 [00:00<00:00, 268.11it/s]
+{"rows": 68748, "event": "validation_ok_activity", "level": "info", "timestamp": "2026-05-20T22:39:44.080813Z"}
+{"customers": 11338, "activity_rows": 68748, "event": "feature_build_start", "level": "info", "timestamp": "2026-05-20T22:39:44.084326Z"}
+{"rows": 11338, "n_features": 24, "positive_rate": 0.02310813194566943, "event": "feature_build_done", "level": "info", "timestamp": "2026-05-20T22:39:49.297777Z"}
+{"rows": 12305, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:39:49.463582Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:39:49.463582Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:39:50.729248Z"}
+{"as_of_date": "2017-12-31", "window_start_date": "2016-12-31", "months": 12, "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:39:50.730251Z"}
+{"positives": 278, "negatives": 12027, "positive_rate": 0.022592442096708656, "as_of_date": "2017-12-31", "horizon_end": "2018-06-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:39:50.749560Z"}
+{"customers": 12305, "activity_rows": 149196, "as_of_date": "2017-12-31", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:39:50.750560Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 414.21it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 850.00it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2003.01it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|███████████████████████████████████████████████████████████████████████| 2/2 [00:00<?, ?it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 357.57it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2002.53it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1014.71it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2000.62it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1243.49it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 859.42it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 449.83it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 620.79it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 755.48it/s]
+        13 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 24/24 [00:00<00:00, 584.03it/s]
+{"rows": 12305, "event": "validation_ok_customers", "level": "info", "timestamp": "2026-05-20T22:39:50.995407Z"}
+Loading 'datasources' ->
+[]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1330.68it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1524.37it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 2000.62it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1965.47it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 1001.03it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|█████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 1145.31it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 6/6 [00:00<00:00, 790.98it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 129.59it/s]
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\great_expectations\expectations\expectation.py:1518: UserWarning: `result_format` configured at the Validator-level will not be persisted. Please add the configuration to your Checkpoint config or checkpoint_run() method instead.
+  warnings.warn(
+
+Calculating Metrics: 100%|██████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 126.77it/s]
+        9 expectation(s) included in expectation_suite.
+Calculating Metrics: 100%|████████████████████████████████████████████████████████████| 19/19 [00:00<00:00, 145.17it/s]
+{"rows": 149196, "event": "validation_ok_activity", "level": "info", "timestamp": "2026-05-20T22:39:51.392186Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "feature_build_start", "level": "info", "timestamp": "2026-05-20T22:39:51.395747Z"}
+{"rows": 12305, "n_features": 24, "positive_rate": 0.022592442096708656, "event": "feature_build_done", "level": "info", "timestamp": "2026-05-20T22:39:57.230682Z"}
+{"n_train": 11338, "n_test": 12305, "train_pos_rate": 0.02310813194566943, "test_pos_rate": 0.022592442096708656, "n_features": 24, "event": "temporal_split", "level": "info", "timestamp": "2026-05-20T22:39:57.233327Z"}
+2026/05/20 23:39:57 INFO mlflow.tracking.fluent: Experiment with name 'bo1_customer_churn' does not exist. Creating a new experiment.
+{"rows": 11338, "features": 24, "event": "logistic_fit_start", "level": "info", "timestamp": "2026-05-20T22:39:57.794565Z"}
+{"event": "logistic_fit_done", "level": "info", "timestamp": "2026-05-20T22:40:01.303865Z"}
+Using 200 background data samples could cause slower run times. Consider using shap.sample(data, K) or shap.kmeans(data, K) to summarize the background as K samples.
+{"kind": "logistic", "background": 200, "event": "shap_fitted", "level": "info", "timestamp": "2026-05-20T22:40:01.388337Z"}
+  0%|                                                                                        | 0/12305 [00:00<?, ?it/s]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.0
+np.sum(self.kernelWeights) = 0.9999999999999999
+phi = array([-0.060664  , -0.0618122 ,  0.039724  , -0.00466896, -0.0081303 ,
+        0.01869245,  0.05933276, -0.02351857, -0.0285772 , -0.09659562,
+       -0.0817192 , -0.4303216 ,  0.00855915,  0.08024859, -0.13828483,
+        0.11715968, -0.03707552, -0.02547275, -0.46378881,  0.1278222 ,
+       -0.4666301 , -0.08318956])
+  0%|                                                                              | 1/12305 [00:01<6:29:49,  1.90s/it]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.0
+np.sum(self.kernelWeights) = 1.0000000000000002
+phi = array([-0.14233208, -0.14425084,  0.04571707,  0.02436764, -0.01298588,
+        0.02389784,  0.06775762, -0.04489246,  0.0272848 , -0.07525422,
+        0.09678619, -0.54324403,  0.0056161 , -0.36704882, -0.12344943,
+        0.8655138 ,  0.01431369, -0.00651221, -0.84596028,  0.36222032,
+       -0.85246977, -0.33733076])
+  0%|                                                                              | 2/12305 [00:03<6:21:43,  1.86s/it]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.000000000000004
+np.sum(self.kernelWeights) = 1.0000000000000002
+phi = array([-0.03329592, -0.04024202,  0.0278083 , -0.00337894, -0.01902091,
+        0.01895194,  0.06893885, -0.04741199,  0.011006  , -0.07395019,
+        0.09605018, -0.44984128,  0.        , -0.20117815, -0.1165983 ,
+       -0.25701393,  0.00613254, -0.8306933 , -0.41072274,  0.10698033,
+       -0.41268378, -0.08826701])
+  0%|                                                                              | 3/12305 [00:05<6:23:34,  1.87s/it]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.000000000000004
+np.sum(self.kernelWeights) = 1.0000000000000004
+phi = array([-0.04249974, -0.04941737,  0.02556928,  0.01270577, -0.05179887,
+        0.02372735,  0.03404579, -0.05531384,  0.02216501, -0.04684925,
+        0.07838192, -0.53570246, -0.00371296,  0.06435342, -0.24352757,
+        0.92674981,  0.01358836, -1.43634193, -0.63647022,  0.21190259,
+       -0.65056139, -0.30942402])
+  0%|                                                                              | 4/12305 [00:07<6:27:22,  1.89s/it]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.000000000000004
+np.sum(self.kernelWeights) = 1.0
+phi = array([ 0.13843155,  0.13854988,  0.03603249, -0.00169739,  0.01430766,
+        0.02298797,  0.07820346, -0.03961895,  0.01421993, -0.08634162,
+       -0.0852717 , -0.12696292, -0.00522546,  0.22831812,  0.10325006,
+       -0.77180321, -0.113305  , -0.65166599, -0.32016537,  0.03975848,
+       -0.31869424,  0.14778181])
+  0%|                                                                              | 5/12305 [00:09<6:29:56,  1.90s/it]num_full_subsets = 1
+remaining_weight_vector = array([0.20456372, 0.14355349, 0.11364651, 0.09626528, 0.08523488,
+       0.07792904, 0.07305847, 0.06993632, 0.06818791, 0.06762437])
+num_paired_subset_sizes = 10
+weight_left = 0.7126156484270496
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\utils\_legacy.py:257: RuntimeWarning: divide by zero encountered in log
+  return np.log(x/(1-x))
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:640: DeprecationWarning: l1_reg='auto' is deprecated and in a future version the behavior will change from a conditional use of AIC to simply a fixed number of top features. Pass l1_reg='num_features(10)' to opt-in to the new default behaviour.
+  warnings.warn(
+
+np.sum(w_aug) = 22.000000000000004
+np.sum(self.kernelWeights) = 0.9999999999999999
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_kernel.py:651: RuntimeWarning: invalid value encountered in subtract
+  eyAdj_aug = np.hstack((eyAdj, eyAdj - (self.link.f(self.fx[dim]) - self.link.f(self.fnull[dim]))))
+
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\core\fromnumeric.py:88: RuntimeWarning: invalid value encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+
+  0%|                                                                              | 5/12305 [00:11<7:45:10,  2.27s/it]
+{"error": "Input y contains NaN.", "event": "shap_failed", "level": "warning", "timestamp": "2026-05-20T22:40:12.747234Z"}
+{"path": "artifacts\\models\\logistic_churn.pkl", "name": "logistic_churn", "event": "model_saved", "level": "info", "timestamp": "2026-05-20T22:40:12.753017Z"}
+{"model": "logistic_churn", "version": "20260520T223957Z", "roc_auc": 0.7238496057731018, "pr_auc": 0.06735725038152746, "f1": 0.14030612244897958, "ks": 0.3861853395806677, "event": "training_done", "level": "info", "timestamp": "2026-05-20T22:40:13.093981Z"}
+{"n_trials": 30, "n_splits": 5, "event": "lightgbm_tune_start", "level": "info", "timestamp": "2026-05-20T22:40:13.190979Z"}
+{"best_pr_auc": 0.14241748471581567, "best_params": {"n_estimators": 791, "learning_rate": 0.054133108401187305, "num_leaves": 202, "max_depth": 10, "min_child_samples": 179, "subsample": 0.9267911758386442, "colsample_bytree": 0.9987332785633167, "reg_alpha": 0.2154989530334856, "reg_lambda": 2.781883851881766e-07}, "event": "lightgbm_tune_done", "level": "info", "timestamp": "2026-05-20T22:43:09.242752Z"}
+{"event": "lightgbm_fit_done", "level": "info", "timestamp": "2026-05-20T22:43:14.462710Z"}
+{"kind": "lightgbm", "background": 200, "event": "shap_fitted", "level": "info", "timestamp": "2026-05-20T22:43:15.642158Z"}
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_tree.py:448: UserWarning: LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray
+  warnings.warn('LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray')
+
+{"path": "artifacts\\models\\lightgbm_churn.pkl", "name": "lightgbm_churn", "event": "model_saved", "level": "info", "timestamp": "2026-05-20T22:43:28.183533Z"}
+{"model": "lightgbm_churn", "version": "20260520T224013Z", "roc_auc": 0.7228388404267856, "pr_auc": 0.06407379656077906, "f1": 0.1395856052344602, "ks": 0.3687548339976061, "event": "training_done", "level": "info", "timestamp": "2026-05-20T22:43:28.238961Z"}
+{"rows": 11338, "features": 24, "scale_pos_weight": 42.274809160305345, "event": "catboost_fit_start", "level": "info", "timestamp": "2026-05-20T22:43:28.476421Z"}
+{"event": "catboost_fit_done", "level": "info", "timestamp": "2026-05-20T22:45:18.520832Z"}
+{"kind": "catboost", "background": 200, "event": "shap_fitted", "level": "info", "timestamp": "2026-05-20T22:45:18.809367Z"}
+{"path": "artifacts\\models\\catboost_churn.pkl", "name": "catboost_churn", "event": "model_saved", "level": "info", "timestamp": "2026-05-20T22:45:20.077008Z"}
+{"model": "catboost_churn", "version": "20260520T224328Z", "roc_auc": 0.7261966929325085, "pr_auc": 0.08141376138023398, "f1": 0.18709073900841908, "ks": 0.39318727108609947, "event": "training_done", "level": "info", "timestamp": "2026-05-20T22:45:20.117598Z"}
+{"path": "artifacts\\reports\\leaderboard_2017-12-31.json", "event": "leaderboard_written", "level": "info", "timestamp": "2026-05-20T22:45:20.122676Z"}
+
+=== Leaderboard ===
+logistic_churn     | ROC-AUC=0.7238  PR-AUC=0.0674  F1=0.1403  KS=0.3862  lift@10%=3.60
+lightgbm_churn     | ROC-AUC=0.7228  PR-AUC=0.0641  F1=0.1396  KS=0.3688  lift@10%=3.53
+catboost_churn     | ROC-AUC=0.7262  PR-AUC=0.0814  F1=0.1871  KS=0.3932  lift@10%=4.46
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m scripts.run_batch_scoring --model catboost_churn --threshold 0.5
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+  warnings.warn(
+{"name": "catboost_churn", "version": "20260520T224328Z", "event": "model_loaded", "level": "info", "timestamp": "2026-05-20T22:49:09.988674Z"}
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-20T22:49:10.115213Z"}
+{"rows": 12305, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:49:10.332222Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:49:10.332222Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:49:12.311965Z"}
+{"as_of_date": "2017-12-31", "window_start_date": "2016-12-31", "months": 12, "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:49:12.312468Z"}
+{"positives": 278, "negatives": 12027, "positive_rate": 0.022592442096708656, "as_of_date": "2017-12-31", "horizon_end": "2018-06-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:49:12.330520Z"}
+{"customers": 12305, "activity_rows": 149196, "as_of_date": "2017-12-31", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:49:12.330520Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "feature_build_start", "level": "info", "timestamp": "2026-05-20T22:49:12.330520Z"}
+{"rows": 12305, "n_features": 24, "positive_rate": 0.022592442096708656, "event": "feature_build_done", "level": "info", "timestamp": "2026-05-20T22:49:23.885315Z"}
+{"event": "predictions_table_ready", "level": "info", "timestamp": "2026-05-20T22:49:24.068755Z"}
+{"table": "churn_predictions", "rows": 12305, "event": "db_write_dataframe", "level": "info", "timestamp": "2026-05-20T22:49:25.964990Z"}
+{"scored": 12305, "high": 30, "medium": 105, "rows_written": 12305, "event": "batch_scoring_done", "level": "info", "timestamp": "2026-05-20T22:49:25.968828Z"}
+as_of_date     model_name    model_version  loyalty_number  churn_probability churn_risk_tier  decision_threshold
+2017-12-31 catboost_churn 20260520T224328Z          480934            0.00008             LOW                 0.5
+2017-12-31 catboost_churn 20260520T224328Z          549612            0.00055             LOW                 0.5
+2017-12-31 catboost_churn 20260520T224328Z          429460            0.00015             LOW                 0.5
+2017-12-31 catboost_churn 20260520T224328Z          608370            0.00001             LOW                 0.5
+2017-12-31 catboost_churn 20260520T224328Z          530508            0.00013             LOW                 0.5
+
+Rows written: 12305
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m scripts.run_drift_report --reference-date 2017-06-30 --current-date 2017-12-31
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+  warnings.warn(
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-20T22:50:35.757285Z"}
+{"rows": 11338, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:50:35.863437Z"}
+{"as_of_date": "2017-06-30", "customers": 11338, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:50:35.863437Z"}
+{"rows": 95550, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:50:36.406665Z"}
+{"as_of_date": "2017-06-30", "window_start_date": "2016-06-30", "months": 12, "rows": 95550, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:50:36.407665Z"}
+{"positives": 262, "negatives": 11076, "positive_rate": 0.02310813194566943, "as_of_date": "2017-06-30", "horizon_end": "2017-12-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:50:36.419694Z"}
+{"customers": 11338, "activity_rows": 68748, "as_of_date": "2017-06-30", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:50:36.420239Z"}
+{"customers": 11338, "activity_rows": 68748, "event": "feature_build_start", "level": "info", "timestamp": "2026-05-20T22:50:36.420239Z"}
+{"rows": 11338, "n_features": 24, "positive_rate": 0.02310813194566943, "event": "feature_build_done", "level": "info", "timestamp": "2026-05-20T22:50:41.359784Z"}
+{"rows": 12305, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:50:41.420882Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "at_risk_loaded", "level": "info", "timestamp": "2026-05-20T22:50:41.420882Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-20T22:50:42.553526Z"}
+{"as_of_date": "2017-12-31", "window_start_date": "2016-12-31", "months": 12, "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-20T22:50:42.553526Z"}
+{"positives": 278, "negatives": 12027, "positive_rate": 0.022592442096708656, "as_of_date": "2017-12-31", "horizon_end": "2018-06-30", "event": "churn_label_attached", "level": "info", "timestamp": "2026-05-20T22:50:42.568258Z"}
+{"customers": 12305, "activity_rows": 149196, "as_of_date": "2017-12-31", "event": "raw_dataset_built", "level": "info", "timestamp": "2026-05-20T22:50:42.569244Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "feature_build_start", "level": "info", "timestamp": "2026-05-20T22:50:42.569244Z"}
+{"rows": 12305, "n_features": 24, "positive_rate": 0.022592442096708656, "event": "feature_build_done", "level": "info", "timestamp": "2026-05-20T22:50:47.965153Z"}
+                     feature      psi    severity
+         flights_trend_slope 3.516436 SIGNIFICANT
+           months_active_12m 1.785477 SIGNIFICANT
+           total_flights_12m 1.785021 SIGNIFICANT
+          total_distance_12m 1.605056 SIGNIFICANT
+total_points_accumulated_12m 1.605056 SIGNIFICANT
+   total_points_redeemed_12m 0.221595    MODERATE
+    dollar_cost_redeemed_12m 0.220199    MODERATE
+      flights_last3_vs_prev3 0.165914    MODERATE
+             redemption_rate 0.157366    MODERATE
+         distance_volatility 0.150506    MODERATE
+       avg_points_per_flight 0.138883    MODERATE
+     avg_distance_per_flight 0.138883    MODERATE
+                   rfm_score 0.033813          OK
+               tenure_months 0.003814          OK
+                         clv 0.000073          OK
+                      salary 0.000073          OK
+    months_since_last_flight 0.000000          OK
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>uvicorn churn_ml.api.main:app --host 0.0.0.0 --port 8000
+Access is denied.
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>uvicorn churn_ml.api.main:app --host 0.0.0.0 --port 8000
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+  warnings.warn(
+INFO:     Started server process [112892]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [112892]
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m pytest -m "not integration and not slow"   # unit
+=================================================================== test session starts ===================================================================
+platform win32 -- Python 3.11.9, pytest-8.3.2, pluggy-1.6.0 -- C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\dev\Mission Entreprise\ME2026\churn_ml
+configfile: pyproject.toml
+plugins: anyio-4.13.0, cov-5.0.0
+collected 0 items
+
+================================================================== no tests ran in 0.05s ==================================================================
+ERROR: file or directory not found: #
+
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m pytest -m "not integration and not slow"
+=================================================================== test session starts ===================================================================
+platform win32 -- Python 3.11.9, pytest-8.3.2, pluggy-1.6.0 -- C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\dev\Mission Entreprise\ME2026\churn_ml
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.13.0, cov-5.0.0
+collected 19 items / 5 deselected / 14 selected
+
+tests/test_evaluation.py::test_classification_metrics_perfect PASSED                                                                                 [  7%]
+tests/test_evaluation.py::test_threshold_search_returns_value_in_range PASSED                                                                        [ 14%]
+tests/test_evaluation.py::test_business_metrics_zero_when_nobody_contacted PASSED                                                                    [ 21%]
+tests/test_evaluation.py::test_psi_no_drift_when_identical PASSED                                                                                    [ 28%]
+tests/test_evaluation.py::test_psi_detects_shift PASSED                                                                                              [ 35%]
+tests/test_features.py::test_feature_shape_matches_population PASSED                                                                                 [ 42%]
+tests/test_features.py::test_customer_without_activity_gets_zeros_and_high_recency PASSED                                                            [ 50%]
+tests/test_features.py::test_no_leakage_columns_in_X PASSED                                                                                          [ 57%]
+tests/test_features.py::test_rfm_score_is_in_bounds PASSED                                                                                           [ 64%]
+tests/test_labeling.py::test_label_positive_when_cancellation_within_window PASSED                                                                   [ 71%]
+tests/test_labeling.py::test_cancellation_column_dropped PASSED                                                                                      [ 78%]
+tests/test_labeling.py::test_cancellation_exactly_on_snapshot_is_not_positive PASSED                                                                 [ 85%]
+tests/test_models.py::test_logistic_fits_and_predicts PASSED                                                                                         [ 92%]
+tests/test_models.py::test_artifact_round_trip PASSED                                                                                                [100%]
+
+==================================================================== warnings summary =====================================================================
+..\..\..\..\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161
+  C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+  You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+    warnings.warn(
+
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 216 from C header, got 232 from PyObject
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================================================== 14 passed, 5 deselected, 2 warnings in 18.35s ======================================================
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m pytest -m integration
+=================================================================== test session starts ===================================================================
+platform win32 -- Python 3.11.9, pytest-8.3.2, pluggy-1.6.0 -- C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\dev\Mission Entreprise\ME2026\churn_ml
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.13.0, cov-5.0.0
+collected 19 items / 16 deselected / 3 selected
+
+tests/test_db_integration.py::test_dw_is_reachable PASSED                                                                                            [ 33%]
+tests/test_db_integration.py::test_at_risk_population_returns_rows PASSED                                                                            [ 66%]
+tests/test_db_integration.py::test_basic_count PASSED                                                                                                [100%]
+
+==================================================================== warnings summary =====================================================================
+..\..\..\..\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161
+  C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+  You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+    warnings.warn(
+
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 216 from C header, got 232 from PyObject
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+====================================================== 3 passed, 16 deselected, 2 warnings in 2.57s =======================================================
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>python -m pytest
+=================================================================== test session starts ===================================================================
+platform win32 -- Python 3.11.9, pytest-8.3.2, pluggy-1.6.0 -- C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\dev\Mission Entreprise\ME2026\churn_ml
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.13.0, cov-5.0.0
+collected 19 items
+
+tests/test_db_integration.py::test_dw_is_reachable PASSED                                                                                            [  5%]
+tests/test_db_integration.py::test_at_risk_population_returns_rows PASSED                                                                            [ 10%]
+tests/test_db_integration.py::test_basic_count PASSED                                                                                                [ 15%]
+tests/test_evaluation.py::test_classification_metrics_perfect PASSED                                                                                 [ 21%]
+tests/test_evaluation.py::test_threshold_search_returns_value_in_range PASSED                                                                        [ 26%]
+tests/test_evaluation.py::test_business_metrics_zero_when_nobody_contacted PASSED                                                                    [ 31%]
+tests/test_evaluation.py::test_psi_no_drift_when_identical PASSED                                                                                    [ 36%]
+tests/test_evaluation.py::test_psi_detects_shift PASSED                                                                                              [ 42%]
+tests/test_features.py::test_feature_shape_matches_population PASSED                                                                                 [ 47%]
+tests/test_features.py::test_customer_without_activity_gets_zeros_and_high_recency PASSED                                                            [ 52%]
+tests/test_features.py::test_no_leakage_columns_in_X PASSED                                                                                          [ 57%]
+tests/test_features.py::test_rfm_score_is_in_bounds PASSED                                                                                           [ 63%]
+tests/test_labeling.py::test_label_positive_when_cancellation_within_window PASSED                                                                   [ 68%]
+tests/test_labeling.py::test_cancellation_column_dropped PASSED                                                                                      [ 73%]
+tests/test_labeling.py::test_cancellation_exactly_on_snapshot_is_not_positive PASSED                                                                 [ 78%]
+tests/test_models.py::test_logistic_fits_and_predicts PASSED                                                                                         [ 84%]
+tests/test_models.py::test_lightgbm_fits_and_predicts PASSED                                                                                         [ 89%]
+tests/test_models.py::test_catboost_fits_and_predicts PASSED                                                                                         [ 94%]
+tests/test_models.py::test_artifact_round_trip PASSED                                                                                                [100%]
+
+==================================================================== warnings summary =====================================================================
+..\..\..\..\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161
+  C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\pydantic\_internal\_fields.py:161: UserWarning: Field "model_registry_dir" has conflict with protected namespace "model_".
+
+  You may be able to resolve this warning by setting `model_config['protected_namespaces'] = ('settings_',)`.
+    warnings.warn(
+
+<frozen importlib._bootstrap>:241
+  <frozen importlib._bootstrap>:241: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 216 from C header, got 232 from PyObject
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================= 19 passed, 2 warnings in 17.48s =============================================================
+
+C:\dev\Mission Entreprise\ME2026\churn_ml>
