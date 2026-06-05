@@ -1,0 +1,85 @@
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_dw
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: data_warehouse
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d data_warehouse"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_dw
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  backend:
+    build: .
+    container_name: platform_backend
+    restart: always
+    ports:
+      - "8002:8002"
+    environment:
+      DB_USER: admin
+      DB_PASSWORD: password123
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: data_warehouse
+      CHURN_ML_URL: "http://churn-ml:8000"
+      LOYALTY_ML_URL: "http://loyalty-ml:8001"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  churn-ml:
+    build: ../churn_ml
+    container_name: churn_ml_service
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DB_USER: admin
+      DB_PASSWORD: password123
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: data_warehouse
+    depends_on:
+      db:
+        condition: service_healthy
+
+  loyalty-ml:
+    build: ../loyalty_ml
+    container_name: loyalty_ml_service
+    restart: always
+    ports:
+      - "8001:8001"
+    environment:
+      DB_USER: admin
+      DB_PASSWORD: password123
+      DB_HOST: db
+      DB_PORT: "5432"
+      DB_NAME: data_warehouse
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

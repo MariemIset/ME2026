@@ -1,4 +1,5 @@
 -- 1. DROP EXISTING TABLES
+DROP TABLE IF EXISTS image_analysis;
 DROP TABLE IF EXISTS fact_flight_activity;
 DROP TABLE IF EXISTS fact_satisfaction_survey;
 DROP TABLE IF EXISTS dim_customer;
@@ -88,4 +89,16 @@ CREATE TABLE fact_satisfaction_survey (
     baggage_handling_score INT,
     overall_satisfaction VARCHAR(50),
 	comment_text TEXT
+);
+
+-- 5. IMAGE ANALYSIS TABLE FOR CLIENT UPLOADS
+CREATE TABLE image_analysis (
+    id SERIAL PRIMARY KEY,
+    survey_id INT REFERENCES fact_satisfaction_survey(survey_id),
+    filename VARCHAR(255),
+    label VARCHAR(20),
+    confidence NUMERIC(5,4),
+    top_label VARCHAR(100),
+    top_score NUMERIC(5,4),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

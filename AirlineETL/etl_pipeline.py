@@ -4,19 +4,19 @@ from sqlalchemy import create_engine
 import os
 from prepare_comments_only import prepare_comments 
 
-# 1. Database Connection Setup
-DB_USER = 'admin'
-DB_PASSWORD = 'password123'
-DB_HOST = 'localhost'
-DB_PORT = '54321'
-DB_NAME = 'data_warehouse'
+# 1. Database Connection Setup (configurable via env vars)
+DB_USER = os.environ.get('DB_USER', 'admin')
+DB_PASSWORD = os.environ.get('DB_PASSWORD', 'password123')
+DB_HOST = os.environ.get('DB_HOST', 'localhost')
+DB_PORT = os.environ.get('DB_PORT', '5432')
+DB_NAME = os.environ.get('DB_NAME', 'data_warehouse')
 
 # Create the connection tunnel to PostgreSQL
 engine = create_engine(f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}')
 
 # 2. Define File Paths dynamically based on your project layout
-# This gets the directory where this script is located
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# This points to the project root (ME2026/) where the CSV folders live
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Navigate into the Loyalty Program folder
 LOYALTY_DIR = os.path.join(BASE_DIR, 'Airline+Loyalty+Program')
@@ -150,8 +150,11 @@ def load_fact_flight_activity():
 
 #---------------------------------------------------
 def resolve_comments_file():
+    # Also check nlp/ where prepare_comments_only generates comments_only.csv
+    NLP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'nlp') if os.path.basename(BASE_DIR) != 'nlp' else BASE_DIR
     candidates = [
         os.path.join(BASE_DIR, 'comments_only.csv'),
+        os.path.join(NLP_DIR, 'comments_only.csv'),
         os.path.join(SURVEY_DIR, 'comments_only.csv'),
         os.path.join(BASE_DIR, 'Tweets.csv'),
         os.path.join(BASE_DIR, 'tweets.csv'),

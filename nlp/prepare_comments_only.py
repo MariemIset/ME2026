@@ -24,6 +24,10 @@ def resolve_input_file():
 def prepare_comments():
     input_file = resolve_input_file()
     if input_file is None:
+        # If comments_only.csv already exists, skip generation
+        if os.path.exists(OUTPUT_FILE):
+            print(f"✓ Using existing comments file: {OUTPUT_FILE}")
+            return
         raise FileNotFoundError(
             "Input file not found. Put Tweets.csv or tweets.csv in ME2026 or Airline+Passenger+Satisfaction."
         )
