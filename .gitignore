@@ -16,3 +16,15 @@ frontend/dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# ML saved models (large binary files)
+machine_learning/models/**/saved/*.pkl
+machine_learning/models/**/saved/*.joblib
+machine_learning/models/**/saved/*.h5
+machine_learning/models/**/saved/*.pt
+machine_learning/models/**/saved/*.pth
+machine_learning/models/**/saved/*.onnx
+machine_learning/models/**/saved/*.bin
+!machine_learning/models/**/saved/.gitkeep
+!machine_learning/models/**/saved/*.json
+!machine_learning/models/**/saved/*.csv

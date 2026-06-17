@@ -1,0 +1,16 @@
+[
+  "gender",
+  "loyalty_card",
+  "clv",
+  "salary",
+  "enrollment_type",
+  "total_months",
+  "total_flights",
+  "total_distance",
+  "total_points_earned",
+  "total_points_redeemed",
+  "redemption_rate",
+  "avg_points_per_flight",
+  "marital_status_Married",
+  "marital_status_Single"
+]

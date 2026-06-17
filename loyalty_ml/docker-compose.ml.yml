@@ -1,0 +1,49 @@
+# =========================================================================
+# BO2 — Loyalty Optimisation service.
+# Joins the same Docker network as the DW (`docker_default`).
+# =========================================================================
+
+services:
+  loyalty_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: loyalty_api
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DB_HOST: postgres_dw
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./artifacts:/app/artifacts
+      - ./mlruns:/app/mlruns
+    networks:
+      - dw_network
+
+  loyalty_mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.15.1
+    container_name: loyalty_mlflow
+    restart: unless-stopped
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5001
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --default-artifact-root /mlflow/artifacts
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./mlruns:/mlflow/artifacts
+      - mlflow_db_bo2:/mlflow
+    networks:
+      - dw_network
+
+networks:
+  dw_network:
+    external: true
+    name: docker_default
+
+volumes:
+  mlflow_db_bo2:

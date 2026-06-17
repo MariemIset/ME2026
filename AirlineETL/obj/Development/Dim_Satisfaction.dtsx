@@ -1,0 +1,1575 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2026 2:31:36 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-QHTKJB1U"
+  DTS:CreatorName="LAPTOP-QHTKJB1U\feres"
+  DTS:DTSID="{8281F252-B71B-45B9-99A3-B7E4AF396D91}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{17CF48C1-DF7A-4D93-97B8-405BF6292CDC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_FlightActivity]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FF_FlightActivity"
+      DTS:DTSID="{353CD9B5-2CA9-4821-964D-4B8DF5D0ADCD}"
+      DTS:ObjectName="FF_FlightActivity">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\Airline+Loyalty+Program\Customer Flight Activity.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Loyalty Number"
+              DTS:DTSID="{B13A24AB-61B4-44D5-BED0-FF230A5E7361}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{649630F4-A2F6-48EC-B53B-3D322F535071}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month"
+              DTS:DTSID="{AB871EA8-A68F-4A6C-9617-8F484B456E1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total Flights"
+              DTS:DTSID="{3C91E478-4F30-4993-864B-4C303687E5F8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Distance"
+              DTS:DTSID="{7F29EE3E-F6A4-40AB-AA77-873A09957DA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Points Accumulated"
+              DTS:DTSID="{B0D12935-5DDB-4FEC-AB5A-7EA2EE3C86E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Points Redeemed"
+              DTS:DTSID="{523757AF-B2BE-4BE6-A811-CAF580EE8213}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Dollar Cost Points Redeemed"
+              DTS:DTSID="{54742D58-907D-4F78-9FCB-364865FE8DB9}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FF_SATISFACTION]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="FF_SATISFACTION"
+      DTS:DTSID="{47FC5B6E-397E-4BD6-931C-213BF9A1ACD0}"
+      DTS:ObjectName="FF_SATISFACTION">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\Airline+Passenger+Satisfaction\airline_passenger_satisfaction.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{068FBDA7-1DC5-4FF4-AD4D-7C301C999FB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{082073A9-7911-4002-BC6D-C43DF7D05567}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Age"
+              DTS:DTSID="{CE989A18-452B-4EE6-BF86-B915DD77A8A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Customer Type"
+              DTS:DTSID="{21566BA3-E3D0-4954-932A-CE8481D87E8F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Type of Travel"
+              DTS:DTSID="{E4D71226-D773-4111-AE46-6A7C9E473B2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{04337447-BD3B-4E03-9313-DE1BDB4091ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flight Distance"
+              DTS:DTSID="{817D4E28-66DC-44AE-B7A7-E0F87F77DAC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departure Delay"
+              DTS:DTSID="{454FCC5F-441E-4A08-A538-6E21ACC0A9A5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Arrival Delay"
+              DTS:DTSID="{9B5E42F8-2DCB-49CA-9CBE-62A3F97F621A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Departure and Arrival Time Convenience"
+              DTS:DTSID="{4BF71F0F-5C42-41C8-B4AC-75B5903D757F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Ease of Online Booking"
+              DTS:DTSID="{2CCBD9C3-5F38-4088-842E-078196EBA675}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Check-in Service"
+              DTS:DTSID="{B189C321-D3AC-4B93-9A50-AFF3A84FAE10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Online Boarding"
+              DTS:DTSID="{7EC8E929-7F07-48EA-AAF4-DF531015430D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gate Location"
+              DTS:DTSID="{BFCDFEFC-49EB-4511-B58D-ED672ED1AD2D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="On-board Service"
+              DTS:DTSID="{DD9E7BEB-99DA-405B-BC74-B39AE373D465}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Seat Comfort"
+              DTS:DTSID="{B7282289-522D-46DE-98DF-A1879E1446EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Leg Room Service"
+              DTS:DTSID="{5AF42538-0D80-46B2-9C78-C79001BA76F6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Cleanliness"
+              DTS:DTSID="{B85793CA-2329-4B25-A1F3-0F43AB1D53BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Food and Drink"
+              DTS:DTSID="{829D12A4-25F8-4982-B14C-BA6C84CAFECF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="In-flight Service"
+              DTS:DTSID="{424E0FB6-DF47-4ED7-BD1F-2785E6A17AE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="In-flight Wifi Service"
+              DTS:DTSID="{BBC56156-0744-4053-B202-CE3FC9C498ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="In-flight Entertainment"
+              DTS:DTSID="{7422C87B-8CC2-4A31-A558-B1DADBEFF384}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Baggage Handling"
+              DTS:DTSID="{414488E2-76AA-4EF9-8453-A84810A592BF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Satisfaction"
+              DTS:DTSID="{E3AF6B83-051F-4E28-9DA6-E8C41940F852}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLE_DataWarehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B498D847-EA49-4231-A08B-39EED63C9094}"
+      DTS:ObjectName="OLE_DataWarehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=data_warehouse;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B498D847-EA49-4231-A08B-39EED63C9094}localhost.data_warehouse;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load dim_satisfaction"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{5f734004-9ded-4eda-b157-b464fb8777a5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="1036"
+      DTS:ObjectName="DFT - Load dim_satisfaction"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load dim_satisfaction\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[fact_satisfaction_survey]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLE_DataWarehouse]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[gender]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Age]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Age"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Age]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Customer Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Customer Type"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[customer_type]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Customer Type]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Type of Travel]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type of Travel"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_of_travel]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Type of Travel]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Class]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Class"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[flight_class]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Class]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Flight Distance]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Flight Distance"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[flight_distance]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Flight Distance]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Departure Delay]"
+                      cachedDataType="r8"
+                      cachedName="Departure Delay"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[departure_delay_min]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure Delay]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Arrival Delay]"
+                      cachedDataType="r8"
+                      cachedName="Arrival Delay"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[arrival_delay_min]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Arrival Delay]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Departure and Arrival Time Convenience]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Departure and Arrival Time Convenience"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[convenience_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure and Arrival Time Convenience]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Check-in Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Check-in Service"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[online_booking_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Check-in Service]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Ease of Online Booking]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ease of Online Booking"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[check_in_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Ease of Online Booking]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Online Boarding]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Online Boarding"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[online_boarding_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Online Boarding]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Gate Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gate Location"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[gate_location_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gate Location]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[On-board Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="On-board Service"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[on_board_service_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[On-board Service]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Seat Comfort]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Seat Comfort"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[seat_comfort_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Seat Comfort]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Leg Room Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Leg Room Service"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[leg_room_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Leg Room Service]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Cleanliness]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Cleanliness"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cleanliness_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Cleanliness]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Food and Drink]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Food and Drink"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[food_drink_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Food and Drink]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[In-flight Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="In-flight Service"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[in_flight_service_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Service]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[In-flight Wifi Service]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="In-flight Wifi Service"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[wifi_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Wifi Service]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[In-flight Entertainment]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="In-flight Entertainment"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[entertainment_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Entertainment]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Baggage Handling]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Baggage Handling"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[baggage_handling_score]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Baggage Handling]" />
+                    <inputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Satisfaction]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Satisfaction"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[overall_satisfaction]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Satisfaction]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[survey_id]"
+                      dataType="i4"
+                      name="survey_id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="20"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[age]"
+                      dataType="i4"
+                      name="age" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[customer_type]"
+                      dataType="wstr"
+                      length="50"
+                      name="customer_type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[type_of_travel]"
+                      dataType="wstr"
+                      length="50"
+                      name="type_of_travel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[flight_class]"
+                      dataType="wstr"
+                      length="50"
+                      name="flight_class" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[flight_distance]"
+                      dataType="i4"
+                      name="flight_distance" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[departure_delay_min]"
+                      dataType="r8"
+                      name="departure_delay_min" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[arrival_delay_min]"
+                      dataType="r8"
+                      name="arrival_delay_min" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[convenience_score]"
+                      dataType="i4"
+                      name="convenience_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[online_booking_score]"
+                      dataType="i4"
+                      name="online_booking_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[check_in_score]"
+                      dataType="i4"
+                      name="check_in_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[online_boarding_score]"
+                      dataType="i4"
+                      name="online_boarding_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[gate_location_score]"
+                      dataType="i4"
+                      name="gate_location_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[on_board_service_score]"
+                      dataType="i4"
+                      name="on_board_service_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[seat_comfort_score]"
+                      dataType="i4"
+                      name="seat_comfort_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[leg_room_score]"
+                      dataType="i4"
+                      name="leg_room_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[cleanliness_score]"
+                      dataType="i4"
+                      name="cleanliness_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[food_drink_score]"
+                      dataType="i4"
+                      name="food_drink_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[in_flight_service_score]"
+                      dataType="i4"
+                      name="in_flight_service_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[wifi_score]"
+                      dataType="i4"
+                      name="wifi_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[entertainment_score]"
+                      dataType="i4"
+                      name="entertainment_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[baggage_handling_score]"
+                      dataType="i4"
+                      name="baggage_handling_score" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[overall_satisfaction]"
+                      dataType="wstr"
+                      length="50"
+                      name="overall_satisfaction" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load dim_satisfaction\Source du fichier plat"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source du fichier plat"
+              localeId="1036"
+              name="Source du fichier plat"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FF_SATISFACTION]"
+                  connectionManagerRefId="Package.ConnectionManagers[FF_SATISFACTION]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat]"
+                  name="Sortie de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[ID]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Gender]"
+                      length="20"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Age]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Age]"
+                      name="Age"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Customer Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Customer Type]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Customer Type]"
+                      name="Customer Type"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Type of Travel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Type of Travel]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Type of Travel]"
+                      name="Type of Travel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Class]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Class]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Class]"
+                      name="Class"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Flight Distance]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Flight Distance]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Flight Distance]"
+                      name="Flight Distance"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure Delay]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Departure Delay]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure Delay]"
+                      name="Departure Delay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Arrival Delay]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Arrival Delay]"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Arrival Delay]"
+                      name="Arrival Delay"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure and Arrival Time Convenience]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Departure and Arrival Time Convenience]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Departure and Arrival Time Convenience]"
+                      name="Departure and Arrival Time Convenience"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Ease of Online Booking]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Ease of Online Booking]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Ease of Online Booking]"
+                      name="Ease of Online Booking"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Check-in Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Check-in Service]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Check-in Service]"
+                      name="Check-in Service"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Online Boarding]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Online Boarding]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Online Boarding]"
+                      name="Online Boarding"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gate Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Gate Location]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Gate Location]"
+                      name="Gate Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[On-board Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[On-board Service]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[On-board Service]"
+                      name="On-board Service"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Seat Comfort]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Seat Comfort]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Seat Comfort]"
+                      name="Seat Comfort"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Leg Room Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Leg Room Service]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Leg Room Service]"
+                      name="Leg Room Service"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Cleanliness]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Cleanliness]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Cleanliness]"
+                      name="Cleanliness"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Food and Drink]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Food and Drink]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Food and Drink]"
+                      name="Food and Drink"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Service]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Service]"
+                      name="In-flight Service"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Wifi Service]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Wifi Service]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Wifi Service]"
+                      name="In-flight Wifi Service"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Entertainment]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Entertainment]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[In-flight Entertainment]"
+                      name="In-flight Entertainment"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Baggage Handling]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Baggage Handling]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Baggage Handling]"
+                      name="Baggage Handling"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Satisfaction]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Satisfaction]"
+                      length="50"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].Columns[Satisfaction]"
+                      name="Satisfaction"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Age]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Age" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Customer Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Customer Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Type of Travel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Type of Travel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Class]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Class" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Flight Distance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Flight Distance" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Departure Delay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Departure Delay" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Arrival Delay]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Arrival Delay" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Departure and Arrival Time Convenience]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Departure and Arrival Time Convenience" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Ease of Online Booking]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ease of Online Booking" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Check-in Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Check-in Service" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Online Boarding]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Online Boarding" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Gate Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gate Location" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[On-board Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="On-board Service" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Seat Comfort]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Seat Comfort" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Leg Room Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Leg Room Service" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Cleanliness]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cleanliness" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Food and Drink]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Food and Drink" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="In-flight Service" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Wifi Service]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="In-flight Wifi Service" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[In-flight Entertainment]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="In-flight Entertainment" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Baggage Handling]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Baggage Handling" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat].ExternalColumns[Satisfaction]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Satisfaction" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Colonne de sortie d'erreur de source de fichier plat"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      name="Colonne de sortie d'erreur de source de fichier plat" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load dim_satisfaction.Paths[Sortie de source de fichier plat]"
+              endId="Package\DFT - Load dim_satisfaction\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source de fichier plat"
+              startId="Package\DFT - Load dim_satisfaction\Source du fichier plat.Outputs[Sortie de source de fichier plat]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\DFT - Load dim_satisfaction"
+          TopLeft="166.666660838657,264.533331911034" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT - Load dim_satisfaction">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\DFT - Load dim_satisfaction\Source du fichier plat"
+          TopLeft="537.166642006074,586.333327730166" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\DFT - Load dim_satisfaction\Destination OLE DB"
+          TopLeft="538.83332924462,287.466663030519" />
+        <AnnotationLayout
+          Text="x"
+          ParentId="Package\DFT - Load dim_satisfaction"
+          FontInfo="{assembly:Null}"
+          Size="34.4,40"
+          Id="2bd89b40-753b-4b8e-a26f-b5e63ab27cc5"
+          TopLeft="979.166613167361,710.666661724779" />
+        <EdgeLayout
+          Id="Package\DFT - Load dim_satisfaction.Paths[Sortie de source de fichier plat]"
+          TopLeft="624.799985625347,586.333327730166">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-257.266664699647"
+              Start="0,0"
+              End="0,-249.766664699647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-249.766664699647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load dim_satisfaction\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

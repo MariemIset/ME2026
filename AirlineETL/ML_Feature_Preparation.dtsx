@@ -1,0 +1,2374 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/24/2026 10:56:59 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-QHTKJB1U"
+  DTS:CreatorName="LAPTOP-QHTKJB1U\feres"
+  DTS:DTSID="{3A1F361D-34A9-4CE7-96DD-5177A54D86B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="ML_Feature_Preparation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{F44C3E77-9042-43DC-87C3-7ECBD123F444}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{2DE904BB-155E-4827-8DD7-8BEED23B3C36}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\ML_Feature_Preparation\ML_Feature_Preparation.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{C4A3AE24-9FD7-4DE6-A24C-C123F6F5B87C}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\ML_Feature_Preparation\ML_Feature_Preparation.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D2FFB27E-1276-4964-AB38-8C65450E5266}"
+      DTS:ObjectName="Excel Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\feres\OneDrive\Bureau\MISSION ENTREPRISE\ME_FINAL\ML_Feature_Preparation\ML_Feature_Preparation.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.data_warehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3E92EEE7-C2F5-4C47-984E-908560B25A5E}"
+      DTS:ObjectName="localhost.data_warehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=data_warehouse;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ML_Feature_Preparation-{3E92EEE7-C2F5-4C47-984E-908560B25A5E}localhost.data_warehouse;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLE_DataWarehouse]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B498D847-EA49-4231-A08B-39EED63C9094}"
+      DTS:ObjectName="OLE_DataWarehouse">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=data_warehouse;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{B498D847-EA49-4231-A08B-39EED63C9094}localhost.data_warehouse;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{941E82DF-B3EE-48AA-BD72-E962DF15EED7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsInserted">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42E1B002-27D4-435C-8EAA-6020474CBDF0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowsProcessed">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\AUDIT LOG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D96CC65D-82B7-46F4-A1FB-9A7D3A7B3508}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="AUDIT LOG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B498D847-EA49-4231-A08B-39EED63C9094}"
+          SQLTask:SqlStatementSource="INSERT INTO ETL_Run_Audit&#xA;(RecordsProcessed, RecordsInserted, ExecutionTime)&#xA;VALUES (?, 0, GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="User::RowsInserted"
+            SQLTask:DtsVariableName="User::RowsInserted"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="0" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ML_Feature_Preparation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{87B0C1C4-DF88-4EF5-85B2-C718AB8B99D8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ML_Feature_Preparation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Derived Column - Encoding &amp; Scaling 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée].Columns[lifetime_flights]"
+                      cachedDataType="i4"
+                      cachedName="lifetime_flights"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_flights]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée].Columns[lifetime_points]"
+                      cachedDataType="r8"
+                      cachedName="lifetime_points"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_points]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_flights]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_flights]"
+                      name="scaled_flights"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_R8)#{Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_flights]} / 100.0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)lifetime_flights / 100.0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_points]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_points]"
+                      name="scaled_points"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_R8)#{Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_points]} / 100000.0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)lifetime_points / 100000.0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Derived Column - Encoding &amp; Scaling 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée].Columns[cancellation_year]"
+                      cachedDataType="r8"
+                      cachedName="cancellation_year"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_year]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="gender"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[gender]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée].Columns[salary]"
+                      cachedDataType="r8"
+                      cachedName="salary"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[salary]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[target_churn]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[target_churn]"
+                      name="target_churn"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_year]}) ? 0 : 1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(cancellation_year) ? 0 : 1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_female]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_female]"
+                      name="is_female"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[gender]} == "Female" ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">gender == "Female" ? 1 : 0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_male]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_male]"
+                      name="is_male"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[gender]} == "Male" ? 1 : 0</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">gender == "Male" ? 1 : 0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[scaled_salary]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[scaled_salary]"
+                      name="scaled_salary"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[ISNULL](#{Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[salary]}) ? 0.0 : (#{Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[salary]} / 250000.0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(salary) ? 0.0 : (salary / 250000.0)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Destination Excel"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Destination Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Destination Excel"
+              name="Destination Excel"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">ورقة1$</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ML_Feature_Preparation\Destination Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination Excel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[is_male]"
+                      cachedDataType="i4"
+                      cachedName="is_male"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[is_male]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_male]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[is_female]"
+                      cachedDataType="i4"
+                      cachedName="is_female"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[is_female]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_female]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[target_churn]"
+                      cachedDataType="i4"
+                      cachedName="target_churn"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[target_churn]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[target_churn]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[clv]"
+                      cachedDataType="r8"
+                      cachedName="clv"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[clv]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[clv]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[scaled_salary]"
+                      cachedDataType="r8"
+                      cachedName="scaled_salary"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[scaled_salary]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_salary]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[scaled_points]"
+                      cachedDataType="r8"
+                      cachedName="scaled_points"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[scaled_points]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_points]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[scaled_flights]"
+                      cachedDataType="r8"
+                      cachedName="scaled_flights"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[sclaed_flights]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_flights]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[loyalty_number]"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[loyalty_number]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[is_female]"
+                      dataType="wstr"
+                      length="255"
+                      name="is_female" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[is_male]"
+                      dataType="wstr"
+                      length="255"
+                      name="is_male" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[target_churn]"
+                      dataType="wstr"
+                      length="255"
+                      name="target_churn" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[scaled_salary]"
+                      dataType="wstr"
+                      length="255"
+                      name="scaled_salary" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[target_churn1]"
+                      dataType="wstr"
+                      length="255"
+                      name="target_churn1" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[clv]"
+                      dataType="wstr"
+                      length="255"
+                      name="clv" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[scaled_points]"
+                      dataType="wstr"
+                      length="255"
+                      name="scaled_points" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[sclaed_flights]"
+                      dataType="wstr"
+                      length="255"
+                      name="sclaed_flights" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel].ExternalColumns[loyalty_number]"
+                      dataType="wstr"
+                      length="255"
+                      name="loyalty_number" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Destination Excel.Outputs[Sortie d'erreur de destination Excel]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination Excel"
+                  synchronousInputId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Destination Excel.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Destination Excel.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Destination Excel.Outputs[Sortie d'erreur de destination Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Jointure de fusion"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine deux flux de données triés en un seul à l'aide de la jointure FULL, LEFT ou INNER. Nous recommandons cette transformation lorsque les flux de données peuvent être triés au niveau de leurs sources."
+              name="Jointure de fusion"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[loyalty_number]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[is_male]"
+                      cachedDataType="i4"
+                      cachedName="is_male"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_male]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[is_female]"
+                      cachedDataType="i4"
+                      cachedName="is_female"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[is_female]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[target_churn]"
+                      cachedDataType="i4"
+                      cachedName="target_churn"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[target_churn]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[clv]"
+                      cachedDataType="r8"
+                      cachedName="clv"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[clv]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[scaled_salary]"
+                      cachedDataType="r8"
+                      cachedName="scaled_salary"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée].Columns[scaled_salary]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[loyalty_number]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[scaled_points]"
+                      cachedDataType="r8"
+                      cachedName="scaled_points"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_points]" />
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[scaled_flights]"
+                      cachedDataType="r8"
+                      cachedName="scaled_flights"
+                      lineageId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée].Columns[scaled_flights]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_male]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_male]"
+                      name="is_male">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[is_male]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_female]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[is_female]"
+                      name="is_female">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[is_female]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[target_churn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[target_churn]"
+                      name="target_churn">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[target_churn]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[clv]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[clv]"
+                      name="clv">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[clv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_salary]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_salary]"
+                      name="scaled_salary">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion].Columns[scaled_salary]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_points]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_points]"
+                      name="scaled_points">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[scaled_points]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_flights]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[scaled_flights]"
+                      name="scaled_flights">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[scaled_flights]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion].Columns[loyalty_number]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Multidiffusion"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Distribue chaque ligne d'entrée à chaque ligne dans au moins une sortie. Par exemple, connectez votre flux de données pour effectuer une copie des données afin que certaines valeurs puissent être masquées avant de les partager avec des partenaires externes."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 1"
+                  synchronousInputId="Package\ML_Feature_Preparation\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\ML_Feature_Preparation\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Multidiffusion.Outputs[Multidiffusion sortie 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multidiffusion sortie 1"
+                  synchronousInputId="Package\ML_Feature_Preparation\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Nombre de lignes"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Nombre de lignes;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Compte les lignes à mesure qu'elles franchissent un flux de données. Par exemple, utilisez le nombre de lignes traitées pour déterminer s'il faut ou non effectuer les opérations de nettoyage, ou mettez à jour le texte dans un message électronique pour communiquer l'état du traitement."
+              name="Nombre de lignes">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nombre de lignes."
+                  name="VariableName">User::RowsInserted</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Nombre de lignes.Inputs[Nombre de lignes entrée 1]"
+                  hasSideEffects="true"
+                  name="Nombre de lignes entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Nombre de lignes.Outputs[Nombre de lignes sortie 1]"
+                  name="Nombre de lignes sortie 1"
+                  synchronousInputId="Package\ML_Feature_Preparation\Nombre de lignes.Inputs[Nombre de lignes entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[customer_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_number]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[location_id]"
+                      cachedDataType="i4"
+                      cachedName="location_id"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[location_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[promotion_id]"
+                      cachedDataType="i4"
+                      cachedName="promotion_id"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[promotion_id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[gender]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="gender"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[gender]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[education]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="education"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[education]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[salary]"
+                      cachedDataType="r8"
+                      cachedName="salary"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[salary]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[marital_status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="marital_status"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[marital_status]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[loyalty_card]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_card"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_card]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[clv]"
+                      cachedDataType="r8"
+                      cachedName="clv"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[clv]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[enrollment_year]"
+                      cachedDataType="i4"
+                      cachedName="enrollment_year"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[enrollment_month]"
+                      cachedDataType="i4"
+                      cachedName="enrollment_month"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[cancellation_year]"
+                      cachedDataType="r8"
+                      cachedName="cancellation_year"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_year]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri].Columns[cancellation_month]"
+                      cachedDataType="r8"
+                      cachedName="cancellation_month"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_month]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[customer_id]"
+                      name="customer_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[customer_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_number]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[location_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[location_id]"
+                      name="location_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[location_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[promotion_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[promotion_id]"
+                      name="promotion_id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[promotion_id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[gender]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[gender]"
+                      name="gender">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[gender]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[education]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[education]"
+                      name="education">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[education]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[salary]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[salary]"
+                      name="salary">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[salary]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[marital_status]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[marital_status]"
+                      name="marital_status">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[marital_status]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[loyalty_card]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[loyalty_card]"
+                      name="loyalty_card">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_card]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[clv]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[clv]"
+                      name="clv">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[clv]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[enrollment_year]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[enrollment_year]"
+                      name="enrollment_year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_year]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[enrollment_month]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[enrollment_month]"
+                      name="enrollment_month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_month]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_year]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_year]"
+                      name="cancellation_year">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_year]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_month]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri].Columns[cancellation_month]"
+                      name="cancellation_month">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_month]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Sort 2"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données d'entrée en ordre croissant ou décroissant lorsque le tri ne peut pas être effectué à la source. Par exemple, triez les données de vente par 'id de client' avant leur enregistrement dans un fichier plat et leur diffusion dans un autre service. Remarque : nous ne recommandons pas cette transformation dans le cas de flux de données volumineux."
+              name="Sort 2"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\ML_Feature_Preparation\Sort 2.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Inputs[Entrée de tri].Columns[loyalty_number]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="loyalty_number"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[loyalty_number]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Inputs[Entrée de tri].Columns[lifetime_flights]"
+                      cachedDataType="i4"
+                      cachedName="lifetime_flights"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_flights]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Inputs[Entrée de tri].Columns[lifetime_points]"
+                      cachedDataType="r8"
+                      cachedName="lifetime_points"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_points]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[loyalty_number]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_flights]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_flights]"
+                      name="lifetime_flights">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_flights]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_points]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri].Columns[lifetime_points]"
+                      name="lifetime_points">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de traçabilité de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_points]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Source - Customers"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source - Customers"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[dim_customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ML_Feature_Preparation\Source - Customers.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.data_warehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.data_warehouse]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[customer_id]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_number]"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[location_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[location_id]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[location_id]"
+                      name="location_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[promotion_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[promotion_id]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[promotion_id]"
+                      name="promotion_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[gender]"
+                      length="20"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[gender]"
+                      name="gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[education]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[education]"
+                      length="100"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[education]"
+                      name="education"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[salary]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[salary]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[salary]"
+                      name="salary"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[marital_status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[marital_status]"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[marital_status]"
+                      name="marital_status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_card]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_card]"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[loyalty_card]"
+                      name="loyalty_card"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[clv]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[clv]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[clv]"
+                      name="clv"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[enrollment_year]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_year]"
+                      name="enrollment_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[enrollment_month]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[enrollment_month]"
+                      name="enrollment_month"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_year]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[cancellation_year]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_year]"
+                      name="cancellation_year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_month]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[cancellation_month]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].Columns[cancellation_month]"
+                      name="cancellation_month"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      name="loyalty_number" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[location_id]"
+                      dataType="i4"
+                      name="location_id" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[promotion_id]"
+                      dataType="i4"
+                      name="promotion_id" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[gender]"
+                      dataType="wstr"
+                      length="20"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[education]"
+                      dataType="wstr"
+                      length="100"
+                      name="education" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[salary]"
+                      dataType="r8"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[marital_status]"
+                      dataType="wstr"
+                      length="50"
+                      name="marital_status" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_card]"
+                      dataType="wstr"
+                      length="50"
+                      name="loyalty_card" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[clv]"
+                      dataType="r8"
+                      name="clv" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[enrollment_year]"
+                      dataType="i4"
+                      name="enrollment_year" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[enrollment_month]"
+                      dataType="i4"
+                      name="enrollment_month" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[cancellation_year]"
+                      dataType="r8"
+                      name="cancellation_year" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB].ExternalColumns[cancellation_month]"
+                      dataType="r8"
+                      name="cancellation_month" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_number]"
+                      name="loyalty_number" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[location_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[location_id]"
+                      name="location_id" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[promotion_id]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[promotion_id]"
+                      name="promotion_id" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[gender]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[gender]"
+                      name="gender" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[education]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[education]"
+                      name="education" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[salary]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[salary]"
+                      name="salary" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[marital_status]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[marital_status]"
+                      name="marital_status" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_card]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_card]"
+                      name="loyalty_card" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[clv]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[clv]"
+                      name="clv" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[enrollment_year]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[enrollment_year]"
+                      name="enrollment_year" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[enrollment_month]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[enrollment_month]"
+                      name="enrollment_month" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[cancellation_year]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[cancellation_year]"
+                      name="cancellation_year" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[cancellation_month]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[cancellation_month]"
+                      name="cancellation_month" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ML_Feature_Preparation\Source - Flight History"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Source - Flight History"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[fact_flight_activity]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    loyalty_number, 
+    SUM(total_flights) AS lifetime_flights, 
+    SUM(points_accumulated) AS lifetime_points 
+FROM fact_flight_activity 
+GROUP BY loyalty_number</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ML_Feature_Preparation\Source - Flight History.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.data_warehouse]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.data_warehouse]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[loyalty_number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_number]"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[loyalty_number]"
+                      name="loyalty_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_flights]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[lifetime_flights]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_flights]"
+                      name="lifetime_flights"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_points]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[lifetime_points]"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].Columns[lifetime_points]"
+                      name="lifetime_points"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      name="loyalty_number" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[lifetime_flights]"
+                      dataType="i4"
+                      name="lifetime_flights" />
+                    <externalMetadataColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB].ExternalColumns[lifetime_points]"
+                      dataType="r8"
+                      name="lifetime_points" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_number]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[loyalty_number]"
+                      name="loyalty_number" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[lifetime_flights]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[lifetime_flights]"
+                      name="lifetime_flights" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[lifetime_points]"
+                      dataType="r8"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[lifetime_points]"
+                      name="lifetime_points" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Multidiffusion sortie 1]"
+              endId="Package\ML_Feature_Preparation\Destination Excel.Inputs[Entrée de destination Excel]"
+              name="Multidiffusion sortie 1"
+              startId="Package\ML_Feature_Preparation\Multidiffusion.Outputs[Multidiffusion sortie 1]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de colonne dérivée]"
+              endId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de colonne dérivée1]"
+              endId="Package\ML_Feature_Preparation\Jointure de fusion.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de colonne dérivée"
+              startId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de jointure de fusion]"
+              endId="Package\ML_Feature_Preparation\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de jointure de fusion"
+              startId="Package\ML_Feature_Preparation\Jointure de fusion.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de multidiffusion 1]"
+              endId="Package\ML_Feature_Preparation\Nombre de lignes.Inputs[Nombre de lignes entrée 1]"
+              name="Sortie de multidiffusion 1"
+              startId="Package\ML_Feature_Preparation\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de source OLE DB]"
+              endId="Package\ML_Feature_Preparation\Sort 1.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\ML_Feature_Preparation\Source - Customers.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de source OLE DB1]"
+              endId="Package\ML_Feature_Preparation\Sort 2.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\ML_Feature_Preparation\Source - Flight History.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de tri]"
+              endId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de tri"
+              startId="Package\ML_Feature_Preparation\Sort 1.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\ML_Feature_Preparation.Paths[Sortie de tri1]"
+              endId="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de tri"
+              startId="Package\ML_Feature_Preparation\Sort 2.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{76203CC4-CFA5-4705-AF84-426AEE63767E}"
+      DTS:From="Package\ML_Feature_Preparation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\AUDIT LOG" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\AUDIT LOG"
+          TopLeft="603.333300368655,305.933331205911" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\ML_Feature_Preparation"
+          TopLeft="236.666653735771,306.799997866551" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="430.266653735771,327.166664536231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.066646632884,0"
+              Start="0,0"
+              End="165.566646632884,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="165.566646632884,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ML_Feature_Preparation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="260.8,41.6"
+          Id="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 2"
+          TopLeft="525.833304603068,202.799998589754" />
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\ML_Feature_Preparation\Source - Flight History"
+          TopLeft="19.1666656194461,379.599997360309" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\ML_Feature_Preparation\Sort 1"
+          TopLeft="266.666652096643,201.933331929114" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\ML_Feature_Preparation\Sort 2"
+          TopLeft="258.333319218623,384.799997324149" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\ML_Feature_Preparation\Source - Customers"
+          TopLeft="23.3333320584561,201.066665268474" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\ML_Feature_Preparation\Nombre de lignes"
+          TopLeft="1172.49993593743,162.933332200315" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\ML_Feature_Preparation\Destination Excel"
+          TopLeft="1434.16658830726,318.933331115511" />
+        <NodeLayout
+          Size="252,41.6"
+          Id="Package\ML_Feature_Preparation\Derived Column - Encoding &amp; Scaling 1"
+          TopLeft="524.999971315266,384.799997324149" />
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\ML_Feature_Preparation\Jointure de fusion"
+          TopLeft="859.166619723872,321.533331097431" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\ML_Feature_Preparation\Multidiffusion"
+          TopLeft="1184.16660196665,319.799997776151" />
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de colonne dérivée]"
+          TopLeft="656.233304603068,244.399998589754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="282.933315120804,77.133332507677"
+              Start="0,0"
+              End="282.933315120804,69.633332507677">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5666662538385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.5666662538385"
+                    Point2="0,38.5666662538385"
+                    Point3="4,38.5666662538385" />
+                  <mssgle:LineSegment
+                    End="278.933315120804,38.5666662538385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="278.933315120804,38.5666662538385"
+                    Point2="282.933315120804,38.5666662538385"
+                    Point3="282.933315120804,42.5666662538385" />
+                  <mssgle:LineSegment
+                    End="282.933315120804,69.633332507677" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Multidiffusion sortie 1]"
+          TopLeft="1323.36660196666,340.166664445831">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.799986340609,0"
+              Start="0,0"
+              End="103.299986340609,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="103.299986340609,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de tri1]"
+          TopLeft="364.733319218623,405.599997324149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160.266652096643,0"
+              Start="0,0"
+              End="152.766652096643,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="152.766652096643,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de tri]"
+          TopLeft="373.066652096643,223.166665259434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="152.766652506426,0"
+              Start="0,0"
+              End="145.266652506426,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="145.266652506426,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de source OLE DB1]"
+          TopLeft="199.966665619446,402.999997342229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.3666535991767,0"
+              Start="0,0"
+              End="50.8666535991767,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.8666535991767,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de source OLE DB]"
+          TopLeft="193.733332058456,222.299998598794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="72.9333200381866,0"
+              Start="0,0"
+              End="65.4333200381866,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.4333200381866,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de multidiffusion 1]"
+          TopLeft="1253.13326895204,319.799997776151">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-115.266665575836"
+              Start="0,0"
+              End="0,-107.766665575836">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-107.766665575836" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de jointure de fusion]"
+          TopLeft="1019.16661972387,341.466664436791">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="164.999982242783,0"
+              Start="0,0"
+              End="157.499982242783,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="157.499982242783,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\ML_Feature_Preparation.Paths[Sortie de colonne dérivée1]"
+          TopLeft="776.999971315266,405.599997324149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.1666484086061,-63.266666226718"
+              Start="0,0"
+              End="74.6666484086061,-63.266666226718">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37.083324204303,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.083324204303,0"
+                    Point2="41.083324204303,0"
+                    Point3="41.083324204303,-4" />
+                  <mssgle:LineSegment
+                    End="41.083324204303,-59.266666226718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.083324204303,-59.266666226718"
+                    Point2="41.083324204303,-63.266666226718"
+                    Point3="45.083324204303,-63.266666226718" />
+                  <mssgle:LineSegment
+                    End="74.6666484086061,-63.266666226718" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ML_Feature_Preparation\Source - Flight History">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ML_Feature_Preparation\Source - Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ML_Feature_Preparation\Destination Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

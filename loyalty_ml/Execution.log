@@ -1,0 +1,803 @@
+Microsoft Windows [Version 10.0.26200.8246]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m pip install -r requirements.txt
+Requirement already satisfied: python-dotenv==1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: pydantic==2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pydantic-settings==2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 3)) (2.4.0)
+Requirement already satisfied: sqlalchemy==2.0.31 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 5)) (2.0.31)
+Requirement already satisfied: psycopg2-binary==2.9.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 6)) (2.9.9)
+Requirement already satisfied: tenacity==9.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 7)) (9.0.0)
+Requirement already satisfied: pandas==2.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 9)) (2.2.2)
+Requirement already satisfied: numpy==1.26.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 10)) (1.26.4)
+Collecting pyarrow==17.0.0 (from -r requirements.txt (line 11))
+  Using cached pyarrow-17.0.0-cp311-cp311-win_amd64.whl.metadata (3.4 kB)
+Requirement already satisfied: scipy==1.13.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 12)) (1.13.1)
+Requirement already satisfied: scikit-learn==1.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 14)) (1.5.1)
+Requirement already satisfied: lightgbm==4.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 15)) (4.5.0)
+Requirement already satisfied: xgboost==2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 16)) (2.1.1)
+Requirement already satisfied: optuna==3.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 17)) (3.6.1)
+Requirement already satisfied: shap==0.46.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 18)) (0.46.0)
+Requirement already satisfied: mlflow==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: great-expectations==0.18.19 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 21)) (0.18.19)
+Requirement already satisfied: fastapi==0.112.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 23)) (0.112.1)
+Requirement already satisfied: uvicorn==0.30.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.30.6)
+Requirement already satisfied: structlog==24.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 26)) (24.4.0)
+Requirement already satisfied: pytest==8.3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 28)) (8.3.2)
+Requirement already satisfied: pytest-cov==5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 29)) (5.0.0)
+Requirement already satisfied: annotated-types>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (4.15.0)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from sqlalchemy==2.0.31->-r requirements.txt (line 5)) (3.5.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2024.2)
+Requirement already satisfied: tzdata>=2022.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2026.2)
+Requirement already satisfied: joblib>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (3.6.0)
+Requirement already satisfied: alembic>=1.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (1.18.4)
+Requirement already satisfied: colorlog in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.10.1)
+Requirement already satisfied: packaging>=20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (24.2)
+Requirement already satisfied: tqdm in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (4.67.3)
+Requirement already satisfied: PyYAML in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.0.3)
+Requirement already satisfied: slicer==0.0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.0.8)
+Requirement already satisfied: numba in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.65.1)
+Requirement already satisfied: cloudpickle in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (3.1.2)
+Requirement already satisfied: mlflow-skinny==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: Flask<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.3)
+Requirement already satisfied: docker<8,>=4.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (7.1.0)
+Requirement already satisfied: graphene<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.4.3)
+Requirement already satisfied: markdown<4,>=3.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.2)
+Requirement already satisfied: matplotlib<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.9)
+INFO: pip is looking at multiple versions of mlflow to determine which version is compatible with other requirements. This could take a while.
+ERROR: Cannot install mlflow==2.15.1 and pyarrow==17.0.0 because these package versions have conflicting dependencies.
+
+The conflict is caused by:
+    The user requested pyarrow==17.0.0
+    mlflow 2.15.1 depends on pyarrow<16 and >=4.0.0
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
+
+ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+
+[notice] A new release of pip is available: 24.0 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m pip install -r requirements.txt
+Requirement already satisfied: python-dotenv==1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: pydantic==2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pydantic-settings==2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 3)) (2.4.0)
+Requirement already satisfied: sqlalchemy==2.0.31 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 5)) (2.0.31)
+Requirement already satisfied: psycopg2-binary==2.9.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 6)) (2.9.9)
+Requirement already satisfied: tenacity==9.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 7)) (9.0.0)
+Requirement already satisfied: pandas==2.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 9)) (2.2.2)
+Requirement already satisfied: numpy==1.26.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 10)) (1.26.4)
+Requirement already satisfied: pyarrow==15.0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 11)) (15.0.2)
+Requirement already satisfied: scipy==1.13.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 12)) (1.13.1)
+Requirement already satisfied: scikit-learn==1.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 14)) (1.5.1)
+Requirement already satisfied: lightgbm==4.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 15)) (4.5.0)
+Requirement already satisfied: xgboost==2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 16)) (2.1.1)
+Requirement already satisfied: optuna==3.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 17)) (3.6.1)
+Requirement already satisfied: shap==0.46.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 18)) (0.46.0)
+Requirement already satisfied: mlflow==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: great-expectations==0.18.19 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 21)) (0.18.19)
+Requirement already satisfied: fastapi==0.112.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 23)) (0.112.1)
+Requirement already satisfied: uvicorn==0.30.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.30.6)
+Requirement already satisfied: structlog==24.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 26)) (24.4.0)
+Requirement already satisfied: pytest==8.3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 28)) (8.3.2)
+Requirement already satisfied: pytest-cov==5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 29)) (5.0.0)
+Requirement already satisfied: annotated-types>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (4.15.0)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from sqlalchemy==2.0.31->-r requirements.txt (line 5)) (3.5.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2024.2)
+Requirement already satisfied: tzdata>=2022.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2026.2)
+Requirement already satisfied: joblib>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (3.6.0)
+Requirement already satisfied: alembic>=1.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (1.18.4)
+Requirement already satisfied: colorlog in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.10.1)
+Requirement already satisfied: packaging>=20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (24.2)
+Requirement already satisfied: tqdm in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (4.67.3)
+Requirement already satisfied: PyYAML in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.0.3)
+Requirement already satisfied: slicer==0.0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.0.8)
+Requirement already satisfied: numba in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.65.1)
+Requirement already satisfied: cloudpickle in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (3.1.2)
+Requirement already satisfied: mlflow-skinny==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: Flask<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.3)
+Requirement already satisfied: docker<8,>=4.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (7.1.0)
+Requirement already satisfied: graphene<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.4.3)
+Requirement already satisfied: markdown<4,>=3.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.2)
+Requirement already satisfied: matplotlib<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.9)
+Requirement already satisfied: querystring-parser<2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (1.2.4)
+Requirement already satisfied: Jinja2<4,>=3.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.6)
+Requirement already satisfied: waitress<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.2)
+Requirement already satisfied: altair<5.0.0,>=4.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.2.2)
+Requirement already satisfied: Click>=7.1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.4.0)
+Requirement already satisfied: colorama>=0.4.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.4.6)
+Requirement already satisfied: cryptography>=3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (48.0.0)
+Requirement already satisfied: Ipython>=7.16.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (9.13.0)
+Requirement already satisfied: ipywidgets>=7.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.1.8)
+Requirement already satisfied: jsonpatch>=1.22 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.33)
+Requirement already satisfied: jsonschema>=2.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.26.0)
+Requirement already satisfied: makefun<2,>=1.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.16.0)
+Requirement already satisfied: marshmallow<4.0.0,>=3.7.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.26.2)
+Requirement already satisfied: mistune>=0.8.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.2.1)
+Requirement already satisfied: nbformat>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.10.4)
+Requirement already satisfied: notebook>=6.4.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (7.5.6)
+Requirement already satisfied: pyparsing>=2.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.3.2)
+Requirement already satisfied: requests>=2.20 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.34.2)
+Requirement already satisfied: ruamel.yaml<0.18,>=0.16 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.17.40)
+Requirement already satisfied: tzlocal>=1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: urllib3>=1.26 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.7.0)
+Requirement already satisfied: starlette<0.39.0,>=0.37.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from fastapi==0.112.1->-r requirements.txt (line 23)) (0.38.6)
+Requirement already satisfied: h11>=0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.16.0)
+Requirement already satisfied: iniconfig in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (1.6.0)
+Requirement already satisfied: coverage>=5.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from coverage[toml]>=5.2.1->pytest-cov==5.0.0->-r requirements.txt (line 29)) (7.14.0)
+Requirement already satisfied: httptools>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.7.1)
+Requirement already satisfied: watchfiles>=0.13 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (1.2.0)
+Requirement already satisfied: websockets>=10.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (16.0)
+Requirement already satisfied: cachetools<6,>=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.5.2)
+Requirement already satisfied: databricks-sdk<1,>=0.20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.110.0)
+Requirement already satisfied: entrypoints<1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4)
+Requirement already satisfied: gitpython<4,>=3.1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.50)
+Requirement already satisfied: importlib-metadata!=4.7.0,<8,>=3.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (7.2.1)
+Requirement already satisfied: opentelemetry-api<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: opentelemetry-sdk<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: protobuf<6,>=3.12.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.29.6)
+Requirement already satisfied: sqlparse<1,>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.5.5)
+Requirement already satisfied: Mako in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from alembic>=1.5.0->optuna==3.6.1->-r requirements.txt (line 17)) (1.3.12)
+Requirement already satisfied: toolz in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from altair<5.0.0,>=4.2.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: cffi>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.0.0)
+Requirement already satisfied: pywin32>=304 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from docker<8,>=4.0.0->mlflow==2.15.1->-r requirements.txt (line 20)) (311)
+Requirement already satisfied: blinker>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (2.2.0)
+Requirement already satisfied: markupsafe>=2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.3)
+Requirement already satisfied: werkzeug>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.8)
+Requirement already satisfied: graphql-core<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.8)
+Requirement already satisfied: graphql-relay<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.0)
+Requirement already satisfied: decorator>=5.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.2)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.52)
+Requirement already satisfied: psutil>=7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.2)
+Requirement already satisfied: pygments>=2.14.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.15.0)
+Requirement already satisfied: comm>=0.1.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: widgetsnbextension~=4.0.14 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.0.15)
+Requirement already satisfied: jupyterlab_widgets~=3.0.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.16)
+Requirement already satisfied: jsonpointer>=1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonpatch>=1.22->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.1.1)
+Requirement already satisfied: attrs>=22.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.30.0)
+Requirement already satisfied: contourpy>=1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.5.0)
+Requirement already satisfied: pillow>=8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (12.2.0)
+Requirement already satisfied: fastjsonschema>=2.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.21.2)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.9.1)
+Requirement already satisfied: jupyter-server<3,>=2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.2)
+Requirement already satisfied: jupyterlab-server<3,>=2.28.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.28.0)
+Requirement already satisfied: jupyterlab<4.6,>=4.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.5.7)
+Requirement already satisfied: notebook-shim<0.3,>=0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.4)
+Requirement already satisfied: tornado>=6.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.5.5)
+Requirement already satisfied: six>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from python-dateutil>=2.8.2->pandas==2.2.2->-r requirements.txt (line 9)) (1.17.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.15)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (2026.5.20)
+Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ruamel.yaml<0.18,>=0.16->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.15)
+Requirement already satisfied: anyio<5,>=3.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from starlette<0.39.0,>=0.37.2->fastapi==0.112.1->-r requirements.txt (line 23)) (4.13.0)
+Requirement already satisfied: llvmlite<0.48,>=0.47.0dev0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from numba->shap==0.46.0->-r requirements.txt (line 18)) (0.47.0)
+Requirement already satisfied: pycparser in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cffi>=2.0.0->cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0)
+Requirement already satisfied: google-auth~=2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (2.53.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.0.12)
+Requirement already satisfied: zipp>=0.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.1.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jedi>=0.18.2->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.8.7)
+Requirement already satisfied: platformdirs>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-core!=5.0.*,>=4.12->nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.9.6)
+Requirement already satisfied: argon2-cffi>=21.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: jupyter-client>=7.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (8.8.0)
+Requirement already satisfied: jupyter-events>=0.11.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.12.1)
+Requirement already satisfied: jupyter-server-terminals>=0.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.4)
+Requirement already satisfied: nbconvert>=6.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.17.1)
+Requirement already satisfied: overrides>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.7.0)
+Requirement already satisfied: prometheus-client>=0.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.25.0)
+Requirement already satisfied: pywinpty>=2.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.3)
+Requirement already satisfied: pyzmq>=24 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (27.1.0)
+Requirement already satisfied: send2trash>=1.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.1.0)
+Requirement already satisfied: terminado>=0.8.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.18.1)
+Requirement already satisfied: websocket-client>=1.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.9.0)
+Requirement already satisfied: async-lru>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.0)
+Requirement already satisfied: httpx<1,>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.28.1)
+Requirement already satisfied: ipykernel!=6.30.0,>=6.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.0)
+Requirement already satisfied: jupyter-lsp>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.1)
+Requirement already satisfied: setuptools>=41.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (65.5.0)
+Requirement already satisfied: babel>=2.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.0)
+Requirement already satisfied: json5>=0.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.14.0)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.63b0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.63b0)
+Requirement already satisfied: wcwidth in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from prompt_toolkit<3.1.0,>=3.0.41->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.0)
+Requirement already satisfied: executing>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.1)
+Requirement already satisfied: pure-eval in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: argon2-cffi-bindings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.0.3)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4.2)
+Requirement already satisfied: httpcore==1.* in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from httpx<1,>=0.25.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.0.9)
+Requirement already satisfied: debugpy>=1.6.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.8.20)
+Requirement already satisfied: nest-asyncio>=1.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.6.0)
+Requirement already satisfied: python-json-logger>=2.0.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.1.0)
+Requirement already satisfied: rfc3339-validator in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.4)
+Requirement already satisfied: rfc3986-validator>=0.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.1)
+Requirement already satisfied: beautifulsoup4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.14.3)
+Requirement already satisfied: bleach!=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.3.0)
+Requirement already satisfied: defusedxml in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.1)
+Requirement already satisfied: jupyterlab-pygments in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.3.0)
+Requirement already satisfied: nbclient>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.10.4)
+Requirement already satisfied: pandocfilters>=1.4.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: webencodings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.1)
+Requirement already satisfied: tinycss2<1.5,>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+Requirement already satisfied: fqdn in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: isoduration in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (20.11.0)
+Requirement already satisfied: rfc3987-syntax>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: uri-template in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.0)
+Requirement already satisfied: webcolors>=24.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.10.0)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.6.3)
+Requirement already satisfied: soupsieve>=1.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from beautifulsoup4->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.8.3)
+Requirement already satisfied: lark>=1.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.1)
+Requirement already satisfied: arrow>=0.15.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+
+[notice] A new release of pip is available: 24.0 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m pip install -r requirements.txt
+Requirement already satisfied: python-dotenv==1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: pydantic==2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pydantic-settings==2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 3)) (2.4.0)
+Requirement already satisfied: sqlalchemy==2.0.31 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 5)) (2.0.31)
+Requirement already satisfied: psycopg2-binary==2.9.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 6)) (2.9.9)
+Requirement already satisfied: tenacity==9.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 7)) (9.0.0)
+Requirement already satisfied: pandas==2.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 9)) (2.2.2)
+Requirement already satisfied: numpy==1.26.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 10)) (1.26.4)
+Requirement already satisfied: pyarrow==15.0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 11)) (15.0.2)
+Requirement already satisfied: scipy==1.13.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 12)) (1.13.1)
+Requirement already satisfied: scikit-learn==1.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 14)) (1.5.1)
+Requirement already satisfied: lightgbm==4.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 15)) (4.5.0)
+Requirement already satisfied: xgboost==2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 16)) (2.1.1)
+Requirement already satisfied: optuna==3.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 17)) (3.6.1)
+Requirement already satisfied: shap==0.46.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 18)) (0.46.0)
+Requirement already satisfied: mlflow==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: great-expectations==0.18.19 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 21)) (0.18.19)
+Requirement already satisfied: fastapi==0.112.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 23)) (0.112.1)
+Requirement already satisfied: uvicorn==0.30.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.30.6)
+Requirement already satisfied: structlog==24.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 26)) (24.4.0)
+Requirement already satisfied: pytest==8.3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 28)) (8.3.2)
+Requirement already satisfied: pytest-cov==5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 29)) (5.0.0)
+Requirement already satisfied: annotated-types>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (4.15.0)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from sqlalchemy==2.0.31->-r requirements.txt (line 5)) (3.5.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2024.2)
+Requirement already satisfied: tzdata>=2022.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2026.2)
+Requirement already satisfied: joblib>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (3.6.0)
+Requirement already satisfied: alembic>=1.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (1.18.4)
+Requirement already satisfied: colorlog in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.10.1)
+Requirement already satisfied: packaging>=20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (24.2)
+Requirement already satisfied: tqdm in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (4.67.3)
+Requirement already satisfied: PyYAML in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.0.3)
+Requirement already satisfied: slicer==0.0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.0.8)
+Requirement already satisfied: numba in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.65.1)
+Requirement already satisfied: cloudpickle in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (3.1.2)
+Requirement already satisfied: mlflow-skinny==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: Flask<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.3)
+Requirement already satisfied: docker<8,>=4.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (7.1.0)
+Requirement already satisfied: graphene<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.4.3)
+Requirement already satisfied: markdown<4,>=3.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.2)
+Requirement already satisfied: matplotlib<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.9)
+Requirement already satisfied: querystring-parser<2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (1.2.4)
+Requirement already satisfied: Jinja2<4,>=3.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.6)
+Requirement already satisfied: waitress<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.2)
+Requirement already satisfied: altair<5.0.0,>=4.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.2.2)
+Requirement already satisfied: Click>=7.1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.4.0)
+Requirement already satisfied: colorama>=0.4.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.4.6)
+Requirement already satisfied: cryptography>=3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (48.0.0)
+Requirement already satisfied: Ipython>=7.16.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (9.13.0)
+Requirement already satisfied: ipywidgets>=7.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.1.8)
+Requirement already satisfied: jsonpatch>=1.22 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.33)
+Requirement already satisfied: jsonschema>=2.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.26.0)
+Requirement already satisfied: makefun<2,>=1.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.16.0)
+Requirement already satisfied: marshmallow<4.0.0,>=3.7.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.26.2)
+Requirement already satisfied: mistune>=0.8.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.2.1)
+Requirement already satisfied: nbformat>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.10.4)
+Requirement already satisfied: notebook>=6.4.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (7.5.6)
+Requirement already satisfied: pyparsing>=2.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.3.2)
+Requirement already satisfied: requests>=2.20 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.34.2)
+Requirement already satisfied: ruamel.yaml<0.18,>=0.16 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.17.40)
+Requirement already satisfied: tzlocal>=1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: urllib3>=1.26 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.7.0)
+Requirement already satisfied: starlette<0.39.0,>=0.37.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from fastapi==0.112.1->-r requirements.txt (line 23)) (0.38.6)
+Requirement already satisfied: h11>=0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.16.0)
+Requirement already satisfied: iniconfig in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (1.6.0)
+Requirement already satisfied: coverage>=5.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from coverage[toml]>=5.2.1->pytest-cov==5.0.0->-r requirements.txt (line 29)) (7.14.0)
+Requirement already satisfied: httptools>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.7.1)
+Requirement already satisfied: watchfiles>=0.13 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (1.2.0)
+Requirement already satisfied: websockets>=10.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (16.0)
+Requirement already satisfied: cachetools<6,>=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.5.2)
+Requirement already satisfied: databricks-sdk<1,>=0.20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.110.0)
+Requirement already satisfied: entrypoints<1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4)
+Requirement already satisfied: gitpython<4,>=3.1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.50)
+Requirement already satisfied: importlib-metadata!=4.7.0,<8,>=3.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (7.2.1)
+Requirement already satisfied: opentelemetry-api<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: opentelemetry-sdk<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: protobuf<6,>=3.12.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.29.6)
+Requirement already satisfied: sqlparse<1,>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.5.5)
+Requirement already satisfied: Mako in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from alembic>=1.5.0->optuna==3.6.1->-r requirements.txt (line 17)) (1.3.12)
+Requirement already satisfied: toolz in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from altair<5.0.0,>=4.2.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: cffi>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.0.0)
+Requirement already satisfied: pywin32>=304 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from docker<8,>=4.0.0->mlflow==2.15.1->-r requirements.txt (line 20)) (311)
+Requirement already satisfied: blinker>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (2.2.0)
+Requirement already satisfied: markupsafe>=2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.3)
+Requirement already satisfied: werkzeug>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.8)
+Requirement already satisfied: graphql-core<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.8)
+Requirement already satisfied: graphql-relay<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.0)
+Requirement already satisfied: decorator>=5.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.2)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.52)
+Requirement already satisfied: psutil>=7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.2)
+Requirement already satisfied: pygments>=2.14.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.15.0)
+Requirement already satisfied: comm>=0.1.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: widgetsnbextension~=4.0.14 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.0.15)
+Requirement already satisfied: jupyterlab_widgets~=3.0.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.16)
+Requirement already satisfied: jsonpointer>=1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonpatch>=1.22->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.1.1)
+Requirement already satisfied: attrs>=22.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.30.0)
+Requirement already satisfied: contourpy>=1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.5.0)
+Requirement already satisfied: pillow>=8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (12.2.0)
+Requirement already satisfied: fastjsonschema>=2.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.21.2)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.9.1)
+Requirement already satisfied: jupyter-server<3,>=2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.2)
+Requirement already satisfied: jupyterlab-server<3,>=2.28.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.28.0)
+Requirement already satisfied: jupyterlab<4.6,>=4.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.5.7)
+Requirement already satisfied: notebook-shim<0.3,>=0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.4)
+Requirement already satisfied: tornado>=6.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.5.5)
+Requirement already satisfied: six>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from python-dateutil>=2.8.2->pandas==2.2.2->-r requirements.txt (line 9)) (1.17.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.15)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (2026.5.20)
+Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ruamel.yaml<0.18,>=0.16->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.15)
+Requirement already satisfied: anyio<5,>=3.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from starlette<0.39.0,>=0.37.2->fastapi==0.112.1->-r requirements.txt (line 23)) (4.13.0)
+Requirement already satisfied: llvmlite<0.48,>=0.47.0dev0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from numba->shap==0.46.0->-r requirements.txt (line 18)) (0.47.0)
+Requirement already satisfied: pycparser in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cffi>=2.0.0->cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0)
+Requirement already satisfied: google-auth~=2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (2.53.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.0.12)
+Requirement already satisfied: zipp>=0.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.1.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jedi>=0.18.2->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.8.7)
+Requirement already satisfied: platformdirs>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-core!=5.0.*,>=4.12->nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.9.6)
+Requirement already satisfied: argon2-cffi>=21.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: jupyter-client>=7.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (8.8.0)
+Requirement already satisfied: jupyter-events>=0.11.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.12.1)
+Requirement already satisfied: jupyter-server-terminals>=0.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.4)
+Requirement already satisfied: nbconvert>=6.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.17.1)
+Requirement already satisfied: overrides>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.7.0)
+Requirement already satisfied: prometheus-client>=0.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.25.0)
+Requirement already satisfied: pywinpty>=2.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.3)
+Requirement already satisfied: pyzmq>=24 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (27.1.0)
+Requirement already satisfied: send2trash>=1.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.1.0)
+Requirement already satisfied: terminado>=0.8.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.18.1)
+Requirement already satisfied: websocket-client>=1.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.9.0)
+Requirement already satisfied: async-lru>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.0)
+Requirement already satisfied: httpx<1,>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.28.1)
+Requirement already satisfied: ipykernel!=6.30.0,>=6.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.0)
+Requirement already satisfied: jupyter-lsp>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.1)
+Requirement already satisfied: setuptools>=41.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (65.5.0)
+Requirement already satisfied: babel>=2.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.0)
+Requirement already satisfied: json5>=0.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.14.0)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.63b0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.63b0)
+Requirement already satisfied: wcwidth in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from prompt_toolkit<3.1.0,>=3.0.41->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.0)
+Requirement already satisfied: executing>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.1)
+Requirement already satisfied: pure-eval in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: argon2-cffi-bindings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.0.3)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4.2)
+Requirement already satisfied: httpcore==1.* in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from httpx<1,>=0.25.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.0.9)
+Requirement already satisfied: debugpy>=1.6.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.8.20)
+Requirement already satisfied: nest-asyncio>=1.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.6.0)
+Requirement already satisfied: python-json-logger>=2.0.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.1.0)
+Requirement already satisfied: rfc3339-validator in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.4)
+Requirement already satisfied: rfc3986-validator>=0.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.1)
+Requirement already satisfied: beautifulsoup4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.14.3)
+Requirement already satisfied: bleach!=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.3.0)
+Requirement already satisfied: defusedxml in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.1)
+Requirement already satisfied: jupyterlab-pygments in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.3.0)
+Requirement already satisfied: nbclient>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.10.4)
+Requirement already satisfied: pandocfilters>=1.4.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: webencodings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.1)
+Requirement already satisfied: tinycss2<1.5,>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+Requirement already satisfied: fqdn in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: isoduration in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (20.11.0)
+Requirement already satisfied: rfc3987-syntax>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: uri-template in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.0)
+Requirement already satisfied: webcolors>=24.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.10.0)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.6.3)
+Requirement already satisfied: soupsieve>=1.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from beautifulsoup4->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.8.3)
+Requirement already satisfied: lark>=1.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.1)
+Requirement already satisfied: arrow>=0.15.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+
+[notice] A new release of pip is available: 24.0 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m pip install -e .
+Obtaining file:///C:/dev/Mission%20Entreprise/ME2026/loyalty_ml
+  Installing build dependencies ... done
+  Checking if build backend supports build_editable ... done
+  Getting requirements to build editable ... done
+  Preparing editable metadata (pyproject.toml) ... done
+Building wheels for collected packages: loyalty_ml
+  Building editable for loyalty_ml (pyproject.toml) ... done
+  Created wheel for loyalty_ml: filename=loyalty_ml-0.1.0-0.editable-py3-none-any.whl size=1289 sha256=36ccedd7244217229d4e9f149ce6e06daf5938aa068b3dd1e37ba8525f0c8269
+  Stored in directory: C:\Users\MohamedDridi\AppData\Local\Temp\pip-ephem-wheel-cache-w1xqi5sw\wheels\3d\b2\f7\f8696d8d4a80c8ffb11a81af4e165e11bbec325a5c2fefb157
+Successfully built loyalty_ml
+Installing collected packages: loyalty_ml
+Successfully installed loyalty_ml-0.1.0
+
+[notice] A new release of pip is available: 24.0 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>copy .env.example .env
+Overwrite .env? (Yes/No/All): yes
+        1 file(s) copied.
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m scripts.validate_data
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-21T13:25:03.160114Z"}
+{"rows": 12305, "cols": 14, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:03.419671Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "active_customers_loaded", "level": "info", "timestamp": "2026-05-21T13:25:03.419671Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:05.291209Z"}
+{"as_of_date": "2017-12-31", "window_start": "2016-12-31", "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-21T13:25:05.293217Z"}
+{"rows": 16737, "cols": 4, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:05.424646Z"}
+{"as_of_date": "2017-12-31", "outcome_end": "2018-03-31", "rows": 16737, "event": "redemption_outcome_loaded", "level": "info", "timestamp": "2026-05-21T13:25:05.424646Z"}
+{"suite": "active_customers", "rows": 12305, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:25:05.453457Z"}
+{"suite": "activity", "rows": 149196, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:25:05.456457Z"}
+{"positives": 2668, "negatives": 9637, "positive_rate": 0.21682242990654205, "event": "redemption_label_attached", "level": "info", "timestamp": "2026-05-21T13:25:05.473336Z"}
+{"rows": 16737, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:05.588891Z"}
+{"rows": 16737, "event": "uplift_population_loaded", "level": "info", "timestamp": "2026-05-21T13:25:05.589891Z"}
+{"rows": 392936, "cols": 3, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:06.340705Z"}
+{"rows": 392936, "event": "post_enrollment_loaded", "level": "info", "timestamp": "2026-05-21T13:25:06.342778Z"}
+{"n": 16737, "treated": 971, "control": 15766, "engaged_rate_treated": 0.9495365602471678, "engaged_rate_control": 0.3269060002537105, "event": "uplift_label_built", "level": "info", "timestamp": "2026-05-21T13:25:06.492399Z"}
+{"suite": "uplift", "rows": 16737, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:25:06.494406Z"}
+Loyalty data validation OK.
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m scripts.run_segmentation
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-21T13:25:33.758319Z"}
+{"rows": 12305, "cols": 14, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:33.882963Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "active_customers_loaded", "level": "info", "timestamp": "2026-05-21T13:25:33.882963Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:25:35.698232Z"}
+{"as_of_date": "2017-12-31", "window_start": "2016-12-31", "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-21T13:25:35.701774Z"}
+{"suite": "active_customers", "rows": 12305, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:25:35.721674Z"}
+{"suite": "activity", "rows": 149196, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:25:35.724392Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "loyalty_feature_build_start", "level": "info", "timestamp": "2026-05-21T13:25:35.724392Z"}
+{"rows": 12305, "n_features": 30, "positive_rate": null, "event": "loyalty_feature_build_done", "level": "info", "timestamp": "2026-05-21T13:25:40.766244Z"}
+{"k": 2, "bic": 70716.77251574308, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:43.751054Z"}
+{"k": 3, "bic": 23216.37895075994, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:44.143876Z"}
+{"k": 4, "bic": 3680.237266587279, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:44.759133Z"}
+{"k": 5, "bic": 9270.67677181795, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:45.789481Z"}
+{"k": 6, "bic": -31338.017387656073, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:47.048824Z"}
+{"k": 7, "bic": -12992.852897106312, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:48.838761Z"}
+{"k": 8, "bic": -18024.080689163275, "event": "segmentation_k_trial", "level": "info", "timestamp": "2026-05-21T13:25:51.180241Z"}
+{"best_k": 6, "best_bic": -31338.017387656073, "features": ["engagement_score", "value_score", "reward_score", "tier_score", "redemption_rate", "burn_ratio", "tenure_months"], "event": "segmentation_fit_done", "level": "info", "timestamp": "2026-05-21T13:25:51.180241Z"}
+{"path": "artifacts\\models\\gmm_segmentation.pkl", "name": "gmm_segmentation", "event": "model_saved", "level": "info", "timestamp": "2026-05-21T13:25:51.669484Z"}
+{"version": "20260521T132533Z", "best_k": 6, "silhouette": 0.14497942573590972, "db": 2.3240889870233645, "event": "segmentation_pipeline_done", "level": "info", "timestamp": "2026-05-21T13:25:51.880359Z"}
+
+Segmentation complete (k=6)
+  artifact: artifacts\models\gmm_segmentation.pkl
+  segments: artifacts\reports\segments_2017-12-31_20260521T132533Z.csv
+  profile : artifacts\reports\segment_profile_2017-12-31_20260521T132533Z.csv
+  metrics : {'k': 6, 'silhouette': 0.14497942573590972, 'davies_bouldin': 2.3240889870233645, 'bic': -31338.017387656073, 'cluster_sizes': {0: 2177, 1: 2421, 2: 1908, 3: 1886, 4: 950, 5: 2963}, 'cluster_size_balance': 0.32062099223759705}
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m scripts.run_redemption_training --trials 30
+{"train_as_of": "2017-09-30", "test_as_of": "2017-12-31", "event": "redemption_pipeline_start", "level": "info", "timestamp": "2026-05-21T13:26:07.348579Z"}
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-21T13:26:07.410436Z"}
+{"rows": 11837, "cols": 14, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:07.521444Z"}
+{"as_of_date": "2017-09-30", "customers": 11837, "event": "active_customers_loaded", "level": "info", "timestamp": "2026-05-21T13:26:07.521444Z"}
+{"rows": 143325, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:08.854847Z"}
+{"as_of_date": "2017-09-30", "window_start": "2016-09-30", "rows": 143325, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-21T13:26:08.854847Z"}
+{"rows": 15766, "cols": 4, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:09.028003Z"}
+{"as_of_date": "2017-09-30", "outcome_end": "2017-12-30", "rows": 15766, "event": "redemption_outcome_loaded", "level": "info", "timestamp": "2026-05-21T13:26:09.028998Z"}
+{"suite": "active_customers", "rows": 11837, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:26:09.042085Z"}
+{"suite": "activity", "rows": 107649, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:26:09.044091Z"}
+{"positives": 2539, "negatives": 9298, "positive_rate": 0.21449691644842442, "event": "redemption_label_attached", "level": "info", "timestamp": "2026-05-21T13:26:09.051026Z"}
+{"customers": 11837, "activity_rows": 107649, "event": "loyalty_feature_build_start", "level": "info", "timestamp": "2026-05-21T13:26:09.054025Z"}
+{"rows": 11837, "n_features": 30, "positive_rate": 0.21449691644842442, "event": "loyalty_feature_build_done", "level": "info", "timestamp": "2026-05-21T13:26:13.760605Z"}
+{"rows": 12305, "cols": 14, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:13.844024Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "active_customers_loaded", "level": "info", "timestamp": "2026-05-21T13:26:13.844024Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:15.471396Z"}
+{"as_of_date": "2017-12-31", "window_start": "2016-12-31", "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-21T13:26:15.471396Z"}
+{"rows": 16737, "cols": 4, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:26:15.557681Z"}
+{"as_of_date": "2017-12-31", "outcome_end": "2018-03-31", "rows": 16737, "event": "redemption_outcome_loaded", "level": "info", "timestamp": "2026-05-21T13:26:15.557681Z"}
+{"suite": "active_customers", "rows": 12305, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:26:15.575309Z"}
+{"suite": "activity", "rows": 149196, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:26:15.577815Z"}
+{"positives": 2668, "negatives": 9637, "positive_rate": 0.21682242990654205, "event": "redemption_label_attached", "level": "info", "timestamp": "2026-05-21T13:26:15.585686Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "loyalty_feature_build_start", "level": "info", "timestamp": "2026-05-21T13:26:15.585686Z"}
+{"rows": 12305, "n_features": 30, "positive_rate": 0.21682242990654205, "event": "loyalty_feature_build_done", "level": "info", "timestamp": "2026-05-21T13:26:20.518257Z"}
+{"n_trials": 30, "n_splits": 5, "event": "redemption_tune_start", "level": "info", "timestamp": "2026-05-21T13:26:21.102605Z"}
+{"best_pr_auc": 0.2407596691527864, "best_params": {"n_estimators": 336, "learning_rate": 0.1436612313566741, "num_leaves": 201, "max_depth": 6, "min_child_samples": 144, "subsample": 0.6494269980756063, "colsample_bytree": 0.8022301058371761, "reg_alpha": 4.350982599667083e-05, "reg_lambda": 3.193539215258495}, "event": "redemption_tune_done", "level": "info", "timestamp": "2026-05-21T13:30:13.918730Z"}
+{"event": "redemption_fit_done", "level": "info", "timestamp": "2026-05-21T13:30:14.480373Z"}
+{"event": "shap_fitted_loyalty", "level": "info", "timestamp": "2026-05-21T13:30:14.825797Z"}
+C:\Users\MohamedDridi\AppData\Local\Programs\Python\Python311\Lib\site-packages\shap\explainers\_tree.py:448: UserWarning: LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray
+  warnings.warn('LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray')
+{"path": "artifacts\\models\\redemption_predictor.pkl", "name": "redemption_predictor", "event": "model_saved", "level": "info", "timestamp": "2026-05-21T13:30:16.387872Z"}
+{"version": "20260521T132607Z", "roc_auc": 0.5112765034936096, "pr_auc": 0.2198860167791694, "f1": 0.3623484538891159, "ks": 0.03408737158866859, "event": "redemption_pipeline_done", "level": "info", "timestamp": "2026-05-21T13:30:16.490290Z"}
+
+Redemption predictor v20260521T132607Z
+  ROC-AUC=0.5113  PR-AUC=0.2199  F1=0.3623  KS=0.0341
+  artifact: artifacts\models\redemption_predictor.pkl
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m scripts.run_uplift_training
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-21T13:30:51.224653Z"}
+{"rows": 16737, "cols": 15, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:30:51.381189Z"}
+{"rows": 16737, "event": "uplift_population_loaded", "level": "info", "timestamp": "2026-05-21T13:30:51.381189Z"}
+{"rows": 392936, "cols": 3, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:30:52.363546Z"}
+{"rows": 392936, "event": "post_enrollment_loaded", "level": "info", "timestamp": "2026-05-21T13:30:52.365488Z"}
+{"n": 16737, "treated": 971, "control": 15766, "engaged_rate_treated": 0.9495365602471678, "engaged_rate_control": 0.3269060002537105, "event": "uplift_label_built", "level": "info", "timestamp": "2026-05-21T13:30:52.527252Z"}
+{"suite": "uplift", "rows": 16737, "event": "validation_ok", "level": "info", "timestamp": "2026-05-21T13:30:52.529266Z"}
+{"rows": 16737, "treated": 971, "control": 15766, "event": "uplift_features_built", "level": "info", "timestamp": "2026-05-21T13:30:52.558770Z"}
+{"n_treated": 728, "n_control": 11824, "treated_y_rate": 0.9491758241758241, "control_y_rate": 0.3268775372124493, "naive_ate": 0.6222982869633749, "config": {"n_estimators": 400, "learning_rate": 0.05, "num_leaves": 63, "max_depth": -1, "min_child_samples": 50, "random_state": 42}, "event": "uplift_fit_done", "level": "info", "timestamp": "2026-05-21T13:31:00.747196Z"}
+{"path": "artifacts\\models\\uplift_tlearner.pkl", "name": "uplift_tlearner", "event": "model_saved", "level": "info", "timestamp": "2026-05-21T13:31:00.932732Z"}
+{"version": "20260521T133051Z", "qini_auc": -0.2422670971371923, "uplift_top10": NaN, "overall_ate": 0.6236259090140368, "event": "uplift_pipeline_done", "level": "info", "timestamp": "2026-05-21T13:31:01.105389Z"}
+
+Uplift model v20260521T133051Z
+  Qini-AUC=-0.2423  uplift@10%=+nan  uplift@20%=+nan  ATE=+0.6236
+  artifact: artifacts\models\uplift_tlearner.pkl
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m scripts.run_recommendations
+{"segmentation_v": "20260521T132533Z", "redemption_v": "20260521T132607Z", "uplift_v": "20260521T133051Z", "event": "models_loaded", "level": "info", "timestamp": "2026-05-21T13:31:39.350968Z"}
+{"host": "localhost", "database": "data_warehouse", "pool_size": 5, "event": "db_engine_created", "level": "info", "timestamp": "2026-05-21T13:31:39.431464Z"}
+{"rows": 12305, "cols": 14, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:31:39.552081Z"}
+{"as_of_date": "2017-12-31", "customers": 12305, "event": "active_customers_loaded", "level": "info", "timestamp": "2026-05-21T13:31:39.552081Z"}
+{"rows": 191100, "cols": 13, "event": "db_read_sql_done", "level": "info", "timestamp": "2026-05-21T13:31:41.207270Z"}
+{"as_of_date": "2017-12-31", "window_start": "2016-12-31", "rows": 191100, "event": "activity_loaded", "level": "info", "timestamp": "2026-05-21T13:31:41.207270Z"}
+{"customers": 12305, "activity_rows": 149196, "event": "loyalty_feature_build_start", "level": "info", "timestamp": "2026-05-21T13:31:41.222248Z"}
+{"rows": 12305, "n_features": 30, "positive_rate": null, "event": "loyalty_feature_build_done", "level": "info", "timestamp": "2026-05-21T13:31:45.866322Z"}
+{"customers": 12305, "rows": 36915, "top1_rewards": {"tier_upgrade_promo": 9537, "free_companion_ticket": 2515, "bonus_points_offer": 253}, "event": "recommendations_built", "level": "info", "timestamp": "2026-05-21T13:31:46.785121Z"}
+{"event": "recommendations_table_ready", "level": "info", "timestamp": "2026-05-21T13:31:46.813307Z"}
+{"table": "loyalty_recommendations", "rows": 36915, "event": "db_write_dataframe", "level": "info", "timestamp": "2026-05-21T13:31:51.774190Z"}
+{"customers": 12305, "rows_written": 36915, "avg_expected_value": 33.92130024380333, "coverage": 1.0, "top1_distribution": {"tier_upgrade_promo": 0.7751, "free_companion_ticket": 0.2044, "bonus_points_offer": 0.0206}, "event": "recommendations_done", "level": "info", "timestamp": "2026-05-21T13:31:51.782506Z"}
+
+Recommendations generated.
+  rows_written: 36915
+  business: {'customers': 12305, 'coverage': 1.0, 'avg_expected_value': 33.92130024380333, 'total_expected_value': 417401.5995, 'reward_distribution': {'tier_upgrade_promo': 0.7751, 'free_companion_ticket': 0.2044, 'bonus_points_offer': 0.0206}}
+as_of_date  loyalty_number  segment_id  segment_label  redemption_proba  uplift_score    recommended_reward  expected_value  reward_rank
+2017-12-31          480934           3 Active Casuals           0.29330      0.739762    tier_upgrade_promo         15.8660            1
+2017-12-31          480934           3 Active Casuals           0.29330      0.739762    bonus_points_offer          7.5653            2
+2017-12-31          480934           3 Active Casuals           0.29330      0.739762 double_points_weekend          7.0127            3
+2017-12-31          549612           3 Active Casuals           0.34980      0.920679    tier_upgrade_promo         16.9960            1
+2017-12-31          549612           3 Active Casuals           0.34980      0.920679    bonus_points_offer         10.6551            2
+2017-12-31          549612           3 Active Casuals           0.34980      0.920679 double_points_weekend          8.0303            3
+2017-12-31          429460           3 Active Casuals           0.45864      0.996424    tier_upgrade_promo         19.1728            1
+2017-12-31          429460           3 Active Casuals           0.45864      0.996424    bonus_points_offer         13.3029            2
+2017-12-31          429460           3 Active Casuals           0.45864      0.996424 double_points_weekend          8.6267            3
+2017-12-31          608370           2      Champions           0.48784      0.972512    tier_upgrade_promo         19.7568            1
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>uvicorn loyalty_ml.api.main:app --host 0.0.0.0 --port 8001
+Access is denied.
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>uvicorn loyalty_ml.api.main:app --host 0.0.0.0 --port 8001
+INFO:     Started server process [53392]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     127.0.0.1:17570 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:17570 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [53392]
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>python -m pip install -r requirements.txt
+Requirement already satisfied: python-dotenv==1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: pydantic==2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pydantic-settings==2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 3)) (2.4.0)
+Requirement already satisfied: sqlalchemy==2.0.31 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 5)) (2.0.31)
+Requirement already satisfied: psycopg2-binary==2.9.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 6)) (2.9.9)
+Requirement already satisfied: tenacity==9.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 7)) (9.0.0)
+Requirement already satisfied: pandas==2.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 9)) (2.2.2)
+Requirement already satisfied: numpy==1.26.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 10)) (1.26.4)
+Requirement already satisfied: pyarrow==15.0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 11)) (15.0.2)
+Requirement already satisfied: scipy==1.13.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 12)) (1.13.1)
+Requirement already satisfied: scikit-learn==1.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 14)) (1.5.1)
+Requirement already satisfied: lightgbm==4.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 15)) (4.5.0)
+Requirement already satisfied: xgboost==2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 16)) (2.1.1)
+Requirement already satisfied: optuna==3.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 17)) (3.6.1)
+Requirement already satisfied: shap==0.46.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 18)) (0.46.0)
+Requirement already satisfied: mlflow==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: great-expectations==0.18.19 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 21)) (0.18.19)
+Requirement already satisfied: fastapi==0.112.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 23)) (0.112.1)
+Requirement already satisfied: uvicorn==0.30.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.30.6)
+Requirement already satisfied: structlog==24.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 26)) (24.4.0)
+Requirement already satisfied: pytest==8.3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 28)) (8.3.2)
+Requirement already satisfied: pytest-cov==5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 29)) (5.0.0)
+Requirement already satisfied: annotated-types>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (2.20.1)
+Requirement already satisfied: typing-extensions>=4.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pydantic==2.8.2->-r requirements.txt (line 2)) (4.15.0)
+Requirement already satisfied: greenlet!=0.4.17 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from sqlalchemy==2.0.31->-r requirements.txt (line 5)) (3.5.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2024.2)
+Requirement already satisfied: tzdata>=2022.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 9)) (2026.2)
+Requirement already satisfied: joblib>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from scikit-learn==1.5.1->-r requirements.txt (line 14)) (3.6.0)
+Requirement already satisfied: alembic>=1.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (1.18.4)
+Requirement already satisfied: colorlog in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.10.1)
+Requirement already satisfied: packaging>=20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (24.2)
+Requirement already satisfied: tqdm in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (4.67.3)
+Requirement already satisfied: PyYAML in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from optuna==3.6.1->-r requirements.txt (line 17)) (6.0.3)
+Requirement already satisfied: slicer==0.0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.0.8)
+Requirement already satisfied: numba in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (0.65.1)
+Requirement already satisfied: cloudpickle in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from shap==0.46.0->-r requirements.txt (line 18)) (3.1.2)
+Requirement already satisfied: mlflow-skinny==2.15.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (2.15.1)
+Requirement already satisfied: Flask<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.3)
+Requirement already satisfied: docker<8,>=4.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (7.1.0)
+Requirement already satisfied: graphene<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.4.3)
+Requirement already satisfied: markdown<4,>=3.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.2)
+Requirement already satisfied: matplotlib<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.10.9)
+Requirement already satisfied: querystring-parser<2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (1.2.4)
+Requirement already satisfied: Jinja2<4,>=3.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.6)
+Requirement already satisfied: waitress<4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.2)
+Requirement already satisfied: altair<5.0.0,>=4.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.2.2)
+Requirement already satisfied: Click>=7.1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.4.0)
+Requirement already satisfied: colorama>=0.4.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.4.6)
+Requirement already satisfied: cryptography>=3.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (48.0.0)
+Requirement already satisfied: Ipython>=7.16.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (9.13.0)
+Requirement already satisfied: ipywidgets>=7.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (8.1.8)
+Requirement already satisfied: jsonpatch>=1.22 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.33)
+Requirement already satisfied: jsonschema>=2.5.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (4.26.0)
+Requirement already satisfied: makefun<2,>=1.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (1.16.0)
+Requirement already satisfied: marshmallow<4.0.0,>=3.7.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.26.2)
+Requirement already satisfied: mistune>=0.8.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.2.1)
+Requirement already satisfied: nbformat>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.10.4)
+Requirement already satisfied: notebook>=6.4.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (7.5.6)
+Requirement already satisfied: pyparsing>=2.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (3.3.2)
+Requirement already satisfied: requests>=2.20 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.34.2)
+Requirement already satisfied: ruamel.yaml<0.18,>=0.16 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (0.17.40)
+Requirement already satisfied: tzlocal>=1.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: urllib3>=1.26 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from great-expectations==0.18.19->-r requirements.txt (line 21)) (2.7.0)
+Requirement already satisfied: starlette<0.39.0,>=0.37.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from fastapi==0.112.1->-r requirements.txt (line 23)) (0.38.6)
+Requirement already satisfied: h11>=0.8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn==0.30.6->uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.16.0)
+Requirement already satisfied: iniconfig in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (2.3.0)
+Requirement already satisfied: pluggy<2,>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pytest==8.3.2->-r requirements.txt (line 28)) (1.6.0)
+Requirement already satisfied: coverage>=5.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from coverage[toml]>=5.2.1->pytest-cov==5.0.0->-r requirements.txt (line 29)) (7.14.0)
+Requirement already satisfied: httptools>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (0.7.1)
+Requirement already satisfied: watchfiles>=0.13 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (1.2.0)
+Requirement already satisfied: websockets>=10.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from uvicorn[standard]==0.30.6->-r requirements.txt (line 24)) (16.0)
+Requirement already satisfied: cachetools<6,>=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.5.2)
+Requirement already satisfied: databricks-sdk<1,>=0.20.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.110.0)
+Requirement already satisfied: entrypoints<1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4)
+Requirement already satisfied: gitpython<4,>=3.1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.50)
+Requirement already satisfied: importlib-metadata!=4.7.0,<8,>=3.7.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (7.2.1)
+Requirement already satisfied: opentelemetry-api<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: opentelemetry-sdk<3,>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (1.42.0)
+Requirement already satisfied: protobuf<6,>=3.12.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.29.6)
+Requirement already satisfied: sqlparse<1,>=0.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.5.5)
+Requirement already satisfied: Mako in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from alembic>=1.5.0->optuna==3.6.1->-r requirements.txt (line 17)) (1.3.12)
+Requirement already satisfied: toolz in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from altair<5.0.0,>=4.2.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: cffi>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.0.0)
+Requirement already satisfied: pywin32>=304 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from docker<8,>=4.0.0->mlflow==2.15.1->-r requirements.txt (line 20)) (311)
+Requirement already satisfied: blinker>=1.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.9.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (2.2.0)
+Requirement already satisfied: markupsafe>=2.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.0.3)
+Requirement already satisfied: werkzeug>=3.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Flask<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.1.8)
+Requirement already satisfied: graphql-core<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.8)
+Requirement already satisfied: graphql-relay<3.3,>=3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from graphene<4->mlflow==2.15.1->-r requirements.txt (line 20)) (3.2.0)
+Requirement already satisfied: decorator>=5.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.2)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.52)
+Requirement already satisfied: psutil>=7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.2)
+Requirement already satisfied: pygments>=2.14.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.15.0)
+Requirement already satisfied: comm>=0.1.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: widgetsnbextension~=4.0.14 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.0.15)
+Requirement already satisfied: jupyterlab_widgets~=3.0.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipywidgets>=7.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.16)
+Requirement already satisfied: jsonpointer>=1.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonpatch>=1.22->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.1.1)
+Requirement already satisfied: attrs>=22.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (26.1.0)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (2025.9.1)
+Requirement already satisfied: referencing>=0.28.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.37.0)
+Requirement already satisfied: rpds-py>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema>=2.5.1->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.30.0)
+Requirement already satisfied: contourpy>=1.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (1.5.0)
+Requirement already satisfied: pillow>=8 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from matplotlib<4->mlflow==2.15.1->-r requirements.txt (line 20)) (12.2.0)
+Requirement already satisfied: fastjsonschema>=2.15 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.21.2)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (5.9.1)
+Requirement already satisfied: jupyter-server<3,>=2.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.2)
+Requirement already satisfied: jupyterlab-server<3,>=2.28.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.28.0)
+Requirement already satisfied: jupyterlab<4.6,>=4.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.5.7)
+Requirement already satisfied: notebook-shim<0.3,>=0.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.4)
+Requirement already satisfied: tornado>=6.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.5.5)
+Requirement already satisfied: six>=1.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from python-dateutil>=2.8.2->pandas==2.2.2->-r requirements.txt (line 9)) (1.17.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.15)
+Requirement already satisfied: certifi>=2023.5.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from requests>=2.20->great-expectations==0.18.19->-r requirements.txt (line 21)) (2026.5.20)
+Requirement already satisfied: ruamel.yaml.clib>=0.2.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ruamel.yaml<0.18,>=0.16->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.15)
+Requirement already satisfied: anyio<5,>=3.4.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from starlette<0.39.0,>=0.37.2->fastapi==0.112.1->-r requirements.txt (line 23)) (4.13.0)
+Requirement already satisfied: llvmlite<0.48,>=0.47.0dev0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from numba->shap==0.46.0->-r requirements.txt (line 18)) (0.47.0)
+Requirement already satisfied: pycparser in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from cffi>=2.0.0->cryptography>=3.2->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0)
+Requirement already satisfied: google-auth~=2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (2.53.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.0.12)
+Requirement already satisfied: zipp>=0.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from importlib-metadata!=4.7.0,<8,>=3.7.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (4.1.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jedi>=0.18.2->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.8.7)
+Requirement already satisfied: platformdirs>=2.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-core!=5.0.*,>=4.12->nbformat>=5.0->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.9.6)
+Requirement already satisfied: argon2-cffi>=21.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: jupyter-client>=7.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (8.8.0)
+Requirement already satisfied: jupyter-events>=0.11.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.12.1)
+Requirement already satisfied: jupyter-server-terminals>=0.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.4)
+Requirement already satisfied: nbconvert>=6.4.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.17.1)
+Requirement already satisfied: overrides>=5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.7.0)
+Requirement already satisfied: prometheus-client>=0.9 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.25.0)
+Requirement already satisfied: pywinpty>=2.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.3)
+Requirement already satisfied: pyzmq>=24 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (27.1.0)
+Requirement already satisfied: send2trash>=1.8.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.1.0)
+Requirement already satisfied: terminado>=0.8.3 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.18.1)
+Requirement already satisfied: websocket-client>=1.7 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.9.0)
+Requirement already satisfied: async-lru>=1.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.0)
+Requirement already satisfied: httpx<1,>=0.25.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.28.1)
+Requirement already satisfied: ipykernel!=6.30.0,>=6.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (7.2.0)
+Requirement already satisfied: jupyter-lsp>=2.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.3.1)
+Requirement already satisfied: setuptools>=41.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (65.5.0)
+Requirement already satisfied: babel>=2.10 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.18.0)
+Requirement already satisfied: json5>=0.9.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyterlab-server<3,>=2.28.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.14.0)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.63b0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.63b0)
+Requirement already satisfied: wcwidth in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from prompt_toolkit<3.1.0,>=3.0.41->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.0)
+Requirement already satisfied: executing>=1.2.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (3.0.1)
+Requirement already satisfied: pure-eval in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from stack_data>=0.6.0->Ipython>=7.16.3->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.2.3)
+Requirement already satisfied: argon2-cffi-bindings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.1.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (5.0.3)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.4.2)
+Requirement already satisfied: httpcore==1.* in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from httpx<1,>=0.25.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.0.9)
+Requirement already satisfied: debugpy>=1.6.5 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.8.20)
+Requirement already satisfied: nest-asyncio>=1.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from ipykernel!=6.30.0,>=6.5.0->jupyterlab<4.6,>=4.5.7->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.6.0)
+Requirement already satisfied: python-json-logger>=2.0.4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.1.0)
+Requirement already satisfied: rfc3339-validator in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.4)
+Requirement already satisfied: rfc3986-validator>=0.1.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.1.1)
+Requirement already satisfied: beautifulsoup4 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (4.14.3)
+Requirement already satisfied: bleach!=5.0.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (6.3.0)
+Requirement already satisfied: defusedxml in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.7.1)
+Requirement already satisfied: jupyterlab-pygments in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.3.0)
+Requirement already satisfied: nbclient>=0.5.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.10.4)
+Requirement already satisfied: pandocfilters>=1.4.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: webencodings in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (0.5.1)
+Requirement already satisfied: tinycss2<1.5,>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from bleach[css]!=5.0.0->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+Requirement already satisfied: fqdn in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.5.1)
+Requirement already satisfied: isoduration in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (20.11.0)
+Requirement already satisfied: rfc3987-syntax>=1.1.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.1.0)
+Requirement already satisfied: uri-template in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.0)
+Requirement already satisfied: webcolors>=24.6.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (25.10.0)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.15.1->mlflow==2.15.1->-r requirements.txt (line 20)) (0.6.3)
+Requirement already satisfied: soupsieve>=1.6.1 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from beautifulsoup4->nbconvert>=6.4.4->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (2.8.3)
+Requirement already satisfied: lark>=1.2.2 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.3.1)
+Requirement already satisfied: arrow>=0.15.0 in c:\users\mohameddridi\appdata\local\programs\python\python311\lib\site-packages (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->notebook>=6.4.10->great-expectations==0.18.19->-r requirements.txt (line 21)) (1.4.0)
+
+[notice] A new release of pip is available: 24.0 -> 26.1.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\dev\Mission Entreprise\ME2026\loyalty_ml>
